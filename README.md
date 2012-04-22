@@ -1,16 +1,6 @@
-## History
-
-Followed the instructions at
-
-  http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
-
-which recommended a standalone repository for .vimrc and vim plugins.
-
-QED
-
 Installation:
 
-    git clone git://github.com/nelstrom/dotvim.git ~/.vim
+    git clone git@bitbucket.org:ncrowell/vim.git
 
 Create symlinks:
 
