@@ -11,7 +11,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-pathogen'
 Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'vim-scripts/flymaker'
+" too many deps Bundle 'vim-scripts/flymaker'
 Bundle 'vim-scripts/Markdown-syntax'
 Bundle 'vim-scripts/VimOrganizer'
 Bundle 'vim-scripts/pwdstatus.vim'
@@ -20,9 +20,9 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/a.vim'
-Bundle 'vim-script/The-NERD-Commenter'
-Bundle 'vim-script/The-NERD-Tree'
-Bundle 'vim-script/ack.vim'
+Bundle 'vim-scripts/The-NERD-Commenter'
+Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'vim-scripts/ack.vim'
 " Don't Use pathogen
 " call pathogen#infect()
 " call pathogen#helptags()
