@@ -1,17 +1,31 @@
-" Use vim-update-bundles with pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-" Bundle: tpope/vim-pathogen
-" Bundle: vim-scripts/OmniCppComplete
-" Bundle: vim-scripts/flymaker
-" Bundle: vim-scripts/Markdown-syntax
-" Bundle: vim-scripts/VimOrganizer
-" Bundle: vim-scripts/pwdstatus.vim
-" Bundle: vim-scripts/Headlights
-" Use pathogen
-call pathogen#infect()
-call pathogen#helptags()
-
+filetype on
+filetype off
 set nocompatible
+filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let vundle handle itself
+Bundle 'gmarik/vundle'
+
+Bundle 'tpope/vim-pathogen'
+Bundle 'vim-scripts/OmniCppComplete'
+Bundle 'vim-scripts/flymaker'
+Bundle 'vim-scripts/Markdown-syntax'
+Bundle 'vim-scripts/VimOrganizer'
+Bundle 'vim-scripts/pwdstatus.vim'
+" Doesn't work without python 2.6 Bundle 'vim-scripts/Headlights'
+Bundle 'vim-scripts/ctags.vim'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'vim-scripts/surround.vim'
+Bundle 'vim-scripts/a.vim'
+Bundle 'vim-script/The-NERD-Commenter'
+Bundle 'vim-script/The-NERD-Tree'
+" Don't Use pathogen
+" call pathogen#infect()
+" call pathogen#helptags()
+
 set wildmenu
 set showcmd
 set hlsearch
@@ -29,7 +43,6 @@ syntax on
 set ignorecase
 set notimeout ttimeout ttimeoutlen=200
 set number
-filetype plugin indent on
 
 nore ; :
 nore , ;
