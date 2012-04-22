@@ -22,6 +22,7 @@ Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-script/The-NERD-Commenter'
 Bundle 'vim-script/The-NERD-Tree'
+Bundle 'vim-script/ack.vim'
 " Don't Use pathogen
 " call pathogen#infect()
 " call pathogen#helptags()
