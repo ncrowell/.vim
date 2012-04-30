@@ -9,23 +9,28 @@ call vundle#rc()
 " Let vundle handle itself
 Bundle 'gmarik/vundle'
 
-Bundle 'tpope/vim-pathogen'
-Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'vim-scripts/flymaker'
-Bundle 'vim-scripts/Markdown-syntax'
-Bundle 'vim-scripts/VimOrganizer'
-Bundle 'vim-scripts/pwdstatus.vim'
+Bundle 'git://github.com/tpope/vim-pathogen.git'
+" Bundle 'git://github.com/vim-scripts/AutoComplPop.git' doesn't work
+" with vim 700
+Bundle 'git://github.com/vim-scripts/OmniCppComplete.git'
+Bundle 'git://github.com/vim-scripts/flymaker.git'
+Bundle 'git://github.com/vim-scripts/Markdown.git'
+Bundle 'git://github.com/vim-scripts/pwdstatus.vim.git'
+Bundle 'git://github.com/vim-scripts/VimOrganizer.git'
 " Doesn't work without python 2.6 Bundle 'vim-scripts/Headlights'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/surround.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-script/The-NERD-Commenter'
-Bundle 'vim-script/The-NERD-Tree'
-Bundle 'vim-script/ack.vim'
+Bundle 'git://github.com/vim-scripts/ctags.vim.git'
+Bundle 'git://github.com/vim-scripts/surround.vim.git'
+Bundle 'git://github.com/vim-scripts/a.vim.git'
+Bundle 'git://github.com/vim-scripts/The-NERD-tree.git'
+Bundle 'git://github.com/vim-scripts/The-NERD-Commenter.git'
+Bundle 'git://github.com/vim-scripts/ack.vim.git'
 " Don't Use pathogen
 " call pathogen#infect()
 " call pathogen#helptags()
+
+" Save folds across file open/close
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 set wildmenu
 set showcmd
@@ -48,6 +53,8 @@ set number
 nore ; :
 nore , ;
 
+nore @k zfa{
+
 autocmd FileType text setlocal textwidth=72
 
 set textwidth=72
@@ -65,3 +72,5 @@ set cot=menuone
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
+
+colorscheme desert
