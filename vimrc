@@ -9,23 +9,48 @@ call vundle#rc()
 " Let vundle handle itself
 Bundle 'gmarik/vundle'
 
-Bundle 'tpope/vim-pathogen'
-Bundle 'vim-scripts/OmniCppComplete'
-" too many deps Bundle 'vim-scripts/flymaker'
-Bundle 'vim-scripts/Markdown-syntax'
-Bundle 'vim-scripts/VimOrganizer'
-Bundle 'vim-scripts/pwdstatus.vim'
-" Doesn't work without python 2.6 Bundle 'vim-scripts/Headlights'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/surround.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/The-NERD-Commenter'
-Bundle 'vim-scripts/The-NERD-tree'
-Bundle 'vim-scripts/ack.vim'
+Bundle 'git://github.com/tpope/vim-pathogen.git' " why need this? (vundle needs it)
+
+" doesn't work with vim 700
+Bundle 'git://github.com/vim-scripts/AutoComplPop.git'
+Bundle 'git://github.com/vim-scripts/OmniCppComplete.git'
+
+" meh doesn't work
+"    Bundle 'git://github.com/vim-scripts/AsyncCommand.git'
+"    Bundle 'git://github.com/vim-scripts/flymaker.git'
+
+Bundle 'git://github.com/vim-scripts/Markdown.git'
+Bundle 'git://github.com/vim-scripts/pwdstatus.vim.git'
+Bundle 'git://github.com/vim-scripts/VimOrganizer.git'
+Bundle 'git://github.com/vim-scripts/ctags.vim.git'
+Bundle 'git://github.com/vim-scripts/surround.vim.git'
+Bundle 'git://github.com/vim-scripts/a.vim.git'
+Bundle 'git://github.com/vim-scripts/The-NERD-tree.git'
+Bundle 'git://github.com/vim-scripts/The-NERD-Commenter.git' " Automatic commenting!
+Bundle 'git://github.com/vim-scripts/ack.vim.git'
+Bundle 'git://github.com/vim-scripts/SuperTab.git'
+Bundle 'git://github.com/vim-scripts/SuperTab-continued..git'
+Bundle 'vim-scripts/rainbow_parentheses.vim'
+"
+" Bundle 'git://github.com/vim-scripts/taglist.vim.git' " Taglists!
+
+" align statements in parentheses?
+"Bundle 'git://github.com/vim-scripts/Align.vim.git'
+" aligning statements on a specific character, ie. equals sign
+"Bundle 'git://github.com/vim-scripts/Align.git'
+
+" needs python
+if has("python")
+    Bundle 'git://github.com/vim-scripts/Conque-Shell.git'
+endif
+
 " Don't Use pathogen
 " call pathogen#infect()
 " call pathogen#helptags()
+
+" Save folds across file open/close
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
 
 set wildmenu
 set showcmd
@@ -48,6 +73,8 @@ set number
 nore ; :
 nore , ;
 
+nore @k zfa{
+
 autocmd FileType text setlocal textwidth=72
 
 set textwidth=72
@@ -65,3 +92,5 @@ set cot=menuone
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
+
+colorscheme desert
