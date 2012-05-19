@@ -1,5 +1,5 @@
-filetype on
-filetype off
+filetype on    " this is some
+filetype off   " weird bug fix.
 set nocompatible
 filetype plugin indent on
 
