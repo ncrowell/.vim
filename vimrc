@@ -24,7 +24,7 @@ Bundle 'git://github.com/vim-scripts/ctags.vim.git'
 Bundle 'git://github.com/vim-scripts/surround.vim.git'
 Bundle 'git://github.com/vim-scripts/a.vim.git'
 Bundle 'git://github.com/vim-scripts/The-NERD-tree.git'
- " Automatic commenting!
+" Automatic commenting!
 Bundle 'git://github.com/vim-scripts/The-NERD-Commenter.git'
 Bundle 'git://github.com/vim-scripts/ack.vim.git'
 Bundle 'git://github.com/vim-scripts/SuperTab.git'
@@ -110,6 +110,12 @@ nnoremap O O<esc>
 " yank line and paste
 nnoremap yp yyp
 
+" courtesy of the vim wiki: display the syntax highlighting groups
+" underneath the cursor
+map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 set wildmenu
 set showcmd
 set hlsearch
@@ -126,7 +132,6 @@ set laststatus=2
 set confirm
 set mouse=a
 set cmdheight=2
-syntax on
 set ignorecase
 set notimeout ttimeout ttimeoutlen=200
 set number
@@ -136,11 +141,6 @@ nnoremap , ;
 
 " fold inside of braces
 nore @k zfa{
-
-augroup max_line_len
-    autocmd!
-    autocmd FileType text setlocal textwidth=72
-augroup END
 
 set textwidth=72
 set shiftwidth=4
@@ -161,8 +161,14 @@ let java_allow_cpp_keywords=1
 "colorscheme desert
 "colorscheme badwolf
 " solarized options
-let g:solarized_termcolors=16
+syntax enable
+set t_Co=16
 set background=dark
+if (!has("gui_running"))
+    " disable italics, because they were coming out incorrectly for some
+    " reason, only when using vim in the console.
+    let g:solarized_italic = 0
+endif
 colorscheme solarized
 
 " turn on the features of the rainbow_parentheses plugin *after* syntax
