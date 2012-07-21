@@ -12,27 +12,27 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " why need this? (vundle needs it)
-Bundle 'git://github.com/tpope/vim-pathogen.git' 
+Bundle 'tpope/vim-pathogen.git' 
 
 " disable auto completion popup for python, b/c it was sucking
 let g:acp_behaviorPythonOmniLength = -1
-Bundle 'git://github.com/vim-scripts/AutoComplPop.git'
-Bundle 'https://github.com/scrooloose/syntastic.git'
-Bundle 'git://github.com/vim-scripts/Markdown.git'
-Bundle 'git://github.com/vim-scripts/VimOrganizer.git'
-Bundle 'git://github.com/vim-scripts/ctags.vim.git'
-Bundle 'git://github.com/vim-scripts/surround.vim.git'
-Bundle 'git://github.com/vim-scripts/a.vim.git'
-Bundle 'git://github.com/vim-scripts/The-NERD-tree.git'
+Bundle 'vim-scripts/AutoComplPop.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'vim-scripts/Markdown.git'
+Bundle 'vim-scripts/VimOrganizer.git'
+Bundle 'vim-scripts/ctags.vim.git'
+Bundle 'vim-scripts/surround.vim.git'
+Bundle 'vim-scripts/a.vim.git'
+Bundle 'vim-scripts/The-NERD-tree.git'
 " Automatic commenting!
-Bundle 'git://github.com/vim-scripts/The-NERD-Commenter.git'
-Bundle 'git://github.com/vim-scripts/ack.vim.git'
-Bundle 'git://github.com/vim-scripts/SuperTab.git'
-Bundle 'git://github.com/vim-scripts/SuperTab-continued..git'
+Bundle 'vim-scripts/The-NERD-Commenter.git'
+Bundle 'vim-scripts/ack.vim.git'
+Bundle 'vim-scripts/SuperTab.git'
+Bundle 'vim-scripts/SuperTab-continued..git'
 " Colourful braces for easy recognition
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 " Automatic closing of parentheses/braces/square brackets
-Bundle 'https://github.com/vim-scripts/AutoClose.git'
+Bundle 'vim-scripts/AutoClose.git'
 " vim status bar
 Bundle 'https://github.com/Lokaltog/vim-powerline.git'
 " powerline configuration
@@ -40,18 +40,18 @@ set laststatus=2
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
 " git
-Bundle 'git://github.com/tpope/vim-fugitive.git'
+Bundle 'tpope/vim-fugitive.git'
 " align statements in parentheses?
 "Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
 "Bundle 'git://github.com/vim-scripts/Align.git'
 " COLOR SCHEMES
-Bundle 'git://github.com/vim-scripts/badwolf.git'
-Bundle 'https://github.com/vim-scripts/Solarized.git'
+Bundle 'vim-scripts/badwolf.git'
+Bundle 'altercation/vim-colors-solarized.git'
 
 " needs python
 if has("python")
-    Bundle 'git://github.com/vim-scripts/Conque-Shell.git'
+    Bundle 'vim-scripts/Conque-Shell.git'
 endif
 
 " Don't Use pathogen
@@ -131,7 +131,7 @@ set laststatus=2
 
 set confirm
 set mouse=a
-set cmdheight=2
+"set cmdheight=2
 set ignorecase
 set notimeout ttimeout ttimeoutlen=200
 set number
@@ -151,8 +151,6 @@ set laststatus=2
 set showmatch
 set incsearch
 set cindent shiftwidth=4
-set cinoptions={0
-set cot=menuone
 
 let java_highlight_all=1
 let java_highlight_functions="style"
@@ -160,15 +158,10 @@ let java_allow_cpp_keywords=1
 
 "colorscheme desert
 "colorscheme badwolf
-" solarized options
+"solarized options
 syntax enable
-set t_Co=16
 set background=dark
-if (!has("gui_running"))
-    " disable italics, because they were coming out incorrectly for some
-    " reason, only when using vim in the console.
-    let g:solarized_italic = 0
-endif
+let g:solarized_termcolors = 16
 colorscheme solarized
 
 " turn on the features of the rainbow_parentheses plugin *after* syntax
