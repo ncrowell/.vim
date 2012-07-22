@@ -1,6 +1,7 @@
 filetype on    " this is some
-filetype off   " weird bug fix. FOR WHAT???
+filetype off   " weird bug fix. FOR WHAT??? something to do with pathogen?
 set nocompatible
+ " I think this is for pathogen
 filetype plugin indent on
 
 let mapleader = ','
@@ -59,15 +60,20 @@ let g:Powerline_symbols = 'fancy'
 " aligning statements on a specific character, ie. equals sign
 "Bundle 'git://github.com/vim-scripts/Align.git'
 
+" maybe I'll use this someday
+Bundle 'sjl/gundo.vim'
 
 " needs python
 if has("python")
     Bundle 'vim-scripts/Conque-Shell.git'
 endif
 
-" Don't Use pathogen
+" Don't use pathogen by itself
 " call pathogen#infect()
 " call pathogen#helptags()
+
+" possible vulnerability
+set nomodeline
 
 " Save folds across file open/close
 au BufWinLeave *.* mkview
@@ -76,6 +82,7 @@ au BufWinEnter *.* silent loadview
 " Better completion
 :set completeopt=longest,menuone
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Basically this entire block of stuff is courtesy of Steve Losh
 " Oh no, I really need to edit my ~/.vimrc RIGHT NOW
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -83,27 +90,29 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Move lines downwards or upwards
 noremap - ddp
 noremap _ ddP
-" I hate pressing 0 and $ to move to beginning and ends of lines
-nnoremap H ^
-nnoremap L $
+
 " Be kind to your hands
 inoremap jk <esc>
 inoremap fj <esc>
 inoremap <esc> <nop>
 inoremap <esc>: <nop>
-" Moving on long lines makes more sense this way
+nnoremap H ^
+nnoremap L $
+" Moving across wrapped lines
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-" Easer moving in split windows
+" moving between split windows
 nnoremap <c-j> :wincmd j<cr>
 nnoremap <c-k> :wincmd k<cr>
 nnoremap <c-h> :wincmd h<cr>
 nnoremap <c-l> :wincmd l<cr>
 " Replace the default <c-l> mapping (to redraw the screen) and add the removal of search highlighting
 nnoremap <leader>r :nohl<CR><C-L>
-
+" Better regexes? maybe.
+nnoremap / /\v
+vnoremap / /\v
 " Save when losing focus
 augroup save_my_files
     autocmd!
@@ -129,40 +138,57 @@ map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
 
 set wildmenu
 set showcmd
-set hlsearch
-set ignorecase
-set smartcase
+
+" backspace doesn't need to be on a diet
 set backspace=indent,eol,start
-set ai
-set nostartofline
+
+set autoindent
+"set nostartofline
+
 " display column number in status bar
 set ruler
 " always show the status line
 set laststatus=2
+" cross-session undoing
+set undofile
 
+" important things require discussion
 set confirm
+
 set mouse=a
 "set cmdheight=2
 set ignorecase
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=300
+
+" counting is for computers
 set relativenumber
 
+" duh
 nnoremap ; :
 nnoremap , ;
 
 " fold inside of braces
 nore @k zfa{
 
+"""""""" SPACE """"""""""""""""""""
 set textwidth=72
 set shiftwidth=4
 set tabstop=4
 set softtabstop=2
 set expandtab
-set laststatus=2
+set colorcolumn=72
+
+"""""""" SEARCHING """"""""""""""""
+" highlight search results
 set showmatch
+set hlsearch
 set incsearch
 set cindent shiftwidth=4
+" better case handling
+set ignorecase
+set smartcase
 
+"""""""" JAVA """"""""""""""""""
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
