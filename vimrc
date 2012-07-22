@@ -19,35 +19,46 @@ let g:acp_behaviorPythonOmniLength = -1
 Bundle 'vim-scripts/AutoComplPop.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'vim-scripts/Markdown.git'
-Bundle 'vim-scripts/VimOrganizer.git'
+
+" git
+Bundle 'tpope/vim-fugitive.git'
+
+"Bundle 'vim-scripts/VimOrganizer.git'
 Bundle 'vim-scripts/ctags.vim.git'
+
 Bundle 'vim-scripts/surround.vim.git'
 Bundle 'vim-scripts/a.vim.git'
+
 Bundle 'vim-scripts/The-NERD-tree.git'
 " Automatic commenting!
 Bundle 'vim-scripts/The-NERD-Commenter.git'
 Bundle 'vim-scripts/ack.vim.git'
+
 Bundle 'vim-scripts/SuperTab.git'
 Bundle 'vim-scripts/SuperTab-continued..git'
-" Colourful braces for easy recognition
+
+" Colourful braces
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 " Automatic closing of parentheses/braces/square brackets
 Bundle 'vim-scripts/AutoClose.git'
+
 " vim status bar
-Bundle 'https://github.com/Lokaltog/vim-powerline.git'
+Bundle 'Lokaltog/vim-powerline.git'
+" must go faster
+Bundle 'Lokaltog/vim-easymotion'
+
+" COLOR SCHEMES
+Bundle 'vim-scripts/badwolf.git'
+Bundle 'altercation/vim-colors-solarized.git'
+
 " powerline configuration
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
-set t_Co=256
-" git
-Bundle 'tpope/vim-fugitive.git'
 " align statements in parentheses?
 "Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
 "Bundle 'git://github.com/vim-scripts/Align.git'
-" COLOR SCHEMES
-Bundle 'vim-scripts/badwolf.git'
-Bundle 'altercation/vim-colors-solarized.git'
+
 
 " needs python
 if has("python")
@@ -134,7 +145,7 @@ set mouse=a
 "set cmdheight=2
 set ignorecase
 set notimeout ttimeout ttimeoutlen=200
-set number
+set relativenumber
 
 nnoremap ; :
 nnoremap , ;
@@ -159,9 +170,16 @@ let java_allow_cpp_keywords=1
 "colorscheme desert
 "colorscheme badwolf
 "solarized options
+" change the default EasyMotion shading to something more readable with
+" Solarized: courtesy of
+" http://stackoverflow.com/questions/6126871/easymotion-coloring-in-vim-with-solarized-theme
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 syntax enable
+" toggle background color
+call togglebg#map("<F5>")
 set background=dark
-let g:solarized_termcolors = 16
+set t_Co=16
 colorscheme solarized
 
 " turn on the features of the rainbow_parentheses plugin *after* syntax
