@@ -213,5 +213,5 @@ colorscheme solarized
 " turn on the features of the rainbow_parentheses plugin *after* syntax
 " highlighting commands are entered - otherwise, it won't work. At
 " least, it didn't when I was using it for the first time, editing an
-" Octave .m file.
-
+" Octave .m file. TODO maybe just change rainbow parens highlight
+" targets for Solarized?
