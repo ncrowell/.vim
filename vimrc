@@ -17,40 +17,40 @@ Bundle 'tpope/vim-pathogen.git'
 
 " disable auto completion popup for python, b/c it was sucking
 let g:acp_behaviorPythonOmniLength = -1
-Bundle 'vim-scripts/AutoComplPop.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'vim-scripts/Markdown.git'
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/Markdown'
+
+" Tab completion
+Bundle 'ervandew/supertab'
 
 " git
-Bundle 'tpope/vim-fugitive.git'
+Bundle 'tpope/vim-fugitive'
 
-"Bundle 'vim-scripts/VimOrganizer.git'
-Bundle 'vim-scripts/ctags.vim.git'
+"Bundle 'vim-scripts/VimOrganizer'
+Bundle 'vim-scripts/ctags.vim'
 
-Bundle 'vim-scripts/surround.vim.git'
-Bundle 'vim-scripts/a.vim.git'
+Bundle 'vim-scripts/surround.vim'
+Bundle 'vim-scripts/a.vim'
 
-Bundle 'vim-scripts/The-NERD-tree.git'
+Bundle 'vim-scripts/The-NERD-tree'
 " Automatic commenting!
-Bundle 'vim-scripts/The-NERD-Commenter.git'
-Bundle 'vim-scripts/ack.vim.git'
-
-Bundle 'vim-scripts/SuperTab.git'
-Bundle 'vim-scripts/SuperTab-continued..git'
+Bundle 'vim-scripts/The-NERD-Commenter'
+Bundle 'vim-scripts/ack.vim'
 
 " Colourful braces
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 " Automatic closing of parentheses/braces/square brackets
-Bundle 'vim-scripts/AutoClose.git'
+Bundle 'vim-scripts/AutoClose'
 
 " vim status bar
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'Lokaltog/vim-powerline'
 " must go faster
 Bundle 'Lokaltog/vim-easymotion'
 
 " COLOR SCHEMES
-Bundle 'vim-scripts/badwolf.git'
-Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'vim-scripts/badwolf'
+Bundle 'altercation/vim-colors-solarized'
 
 " powerline configuration
 set laststatus=2
@@ -63,9 +63,10 @@ let g:Powerline_symbols = 'fancy'
 " maybe I'll use this someday
 Bundle 'sjl/gundo.vim'
 
+" Wait... is this right?
 " needs python
 if has("python")
-    Bundle 'vim-scripts/Conque-Shell.git'
+    Bundle 'vim-scripts/Conque-Shell'
 endif
 
 " Don't use pathogen by itself
