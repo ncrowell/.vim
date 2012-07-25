@@ -68,3 +68,6 @@
 	path = bundle/Conque-Shell
 	url = git://github.com/vim-scripts/Conque-Shell
     ignore = untracked
+[submodule "bundle/vim-statline"]
+	path = bundle/vim-statline
+	url = git://www.github.com/millermedeiros/vim-statline

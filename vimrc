@@ -45,7 +45,16 @@ Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle 'vim-scripts/AutoClose'
 
 " vim status bar
-Bundle 'Lokaltog/vim-powerline'
+if $HAVE_VIM_POWERLINE_FONT == "TRUE"
+    Bundle 'Lokaltog/vim-powerline'
+else
+    Bundle 'millermedeiros/vim-statline'
+    let g:statline_fugitive = 1
+    let g:statline_filename_relative = 1
+endif
+
+
+
 " must go faster
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -55,7 +64,7 @@ Bundle 'altercation/vim-colors-solarized'
 
 " powerline configuration
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 " align statements in parentheses?
 "Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
