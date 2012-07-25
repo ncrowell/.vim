@@ -152,7 +152,9 @@ set ruler
 " always show the status line
 set laststatus=2
 " cross-session undoing
-set undofile
+if has("persistent_undo") || exists("+undofile")
+    set undofile
+endif
 
 " important things require discussion
 set confirm
@@ -163,7 +165,9 @@ set ignorecase
 set notimeout ttimeout ttimeoutlen=300
 
 " counting is for computers
-set relativenumber
+if exists("+relativenumber")
+    set relativenumber
+endif
 
 " duh
 nnoremap ; :
@@ -178,7 +182,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=2
 set expandtab
-set colorcolumn=72
+if  exists("+colorcolumn")
+    set colorcolumn=72
+endif
 
 """""""" SEARCHING """"""""""""""""
 " highlight search results
