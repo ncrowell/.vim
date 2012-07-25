@@ -31,7 +31,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/ctags.vim'
 
 Bundle 'vim-scripts/surround.vim'
-"Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/a.vim'
 
 Bundle 'vim-scripts/The-NERD-tree'
 " Automatic commenting!
