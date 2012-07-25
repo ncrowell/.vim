@@ -13,7 +13,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " why need this? (vundle needs it)
-Bundle 'tpope/vim-pathogen.git' 
+Bundle 'tpope/vim-pathogen'
 
 " disable auto completion popup for python, b/c it was sucking
 let g:acp_behaviorPythonOmniLength = -1
@@ -205,7 +205,7 @@ hi link EasyMotionShade  Comment
 syntax enable
 " toggle background color
 call togglebg#map("<F5>")
-set background=dark
+set background=light
 set t_Co=16
 colorscheme solarized
 
