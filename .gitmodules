@@ -13,6 +13,7 @@
 [submodule "bundle/AutoComplPop"]
 	path = bundle/AutoComplPop
 	url = git://github.com/vim-scripts/AutoComplPop
+    ignore = untracked
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic
@@ -28,15 +29,19 @@
 [submodule "bundle/surround.vim"]
 	path = bundle/surround.vim
 	url = git://github.com/vim-scripts/surround.vim
+    ignore = untracked
 [submodule "bundle/The-NERD-tree"]
 	path = bundle/The-NERD-tree
 	url = git://github.com/vim-scripts/The-NERD-tree
+    ignore = untracked
 [submodule "bundle/The-NERD-Commenter"]
 	path = bundle/The-NERD-Commenter
 	url = git://github.com/vim-scripts/The-NERD-Commenter
+    ignore = untracked
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/vim-scripts/ack.vim
+    ignore = untracked
 [submodule "bundle/rainbow_parentheses.vim"]
 	path = bundle/rainbow_parentheses.vim
 	url = git://github.com/vim-scripts/rainbow_parentheses.vim
@@ -61,3 +66,4 @@
 [submodule "bundle/Conque-Shell"]
 	path = bundle/Conque-Shell
 	url = git://github.com/vim-scripts/Conque-Shell
+    ignore = untracked
