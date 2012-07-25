@@ -4,3 +4,60 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive
+[submodule "bundle/vundle"]
+	path = bundle/vundle
+	url = git://github.com/gmarik/vundle
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen
+[submodule "bundle/AutoComplPop"]
+	path = bundle/AutoComplPop
+	url = git://github.com/vim-scripts/AutoComplPop
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic
+[submodule "bundle/Markdown"]
+	path = bundle/Markdown
+	url = git://github.com/vim-scripts/Markdown
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = git://github.com/ervandew/supertab
+[submodule "bundle/ctags.vim"]
+	path = bundle/ctags.vim
+	url = git://github.com/vim-scripts/ctags.vim
+[submodule "bundle/surround.vim"]
+	path = bundle/surround.vim
+	url = git://github.com/vim-scripts/surround.vim
+[submodule "bundle/The-NERD-tree"]
+	path = bundle/The-NERD-tree
+	url = git://github.com/vim-scripts/The-NERD-tree
+[submodule "bundle/The-NERD-Commenter"]
+	path = bundle/The-NERD-Commenter
+	url = git://github.com/vim-scripts/The-NERD-Commenter
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = git://github.com/vim-scripts/ack.vim
+[submodule "bundle/rainbow_parentheses.vim"]
+	path = bundle/rainbow_parentheses.vim
+	url = git://github.com/vim-scripts/rainbow_parentheses.vim
+[submodule "bundle/AutoClose"]
+	path = bundle/AutoClose
+	url = git://github.com/vim-scripts/AutoClose
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline
+[submodule "bundle/vim-easymotion"]
+	path = bundle/vim-easymotion
+	url = git://github.com/Lokaltog/vim-easymotion
+[submodule "bundle/badwolf"]
+	path = bundle/badwolf
+	url = git://github.com/vim-scripts/badwolf
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized
+[submodule "bundle/gundo.vim"]
+	path = bundle/gundo.vim
+	url = git://github.com/sjl/gundo.vim
+[submodule "bundle/Conque-Shell"]
+	path = bundle/Conque-Shell
+	url = git://github.com/vim-scripts/Conque-Shell
