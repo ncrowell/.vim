@@ -89,8 +89,8 @@ au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
 " Better completion - where is this from?
-:set completeopt=longest,menuone
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Basically this entire block of stuff is courtesy of Steve Losh
 " Oh no, I really need to edit my ~/.vimrc RIGHT NOW
@@ -105,37 +105,50 @@ inoremap jk <esc>
 inoremap fj <esc>
 inoremap <esc> <nop>
 inoremap <esc>: <nop>
+" I think these are my favorites
+inoremap j; <esc>:
+inoremap j/ <esc>/
+
 nnoremap H ^
 nnoremap L $
+
 " Moving across wrapped lines
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+
 " moving between split windows
 nnoremap <c-j> :wincmd j<cr>
 nnoremap <c-k> :wincmd k<cr>
 nnoremap <c-h> :wincmd h<cr>
 nnoremap <c-l> :wincmd l<cr>
-" Replace the default <c-l> mapping (to redraw the screen) and add the removal of search highlighting
+
+" Replace the default <c-l> mapping (to redraw the screen)
+" and add the removal of search highlighting
 nnoremap <leader>r :nohl<CR><C-L>
-" Better regexes? maybe.
+
+
+" Better regexes?
 nnoremap / /\v
 vnoremap / /\v
+
 " Save when losing focus
 augroup save_my_files
     autocmd!
     au FocusLost * :silent! wall
 augroup END
+
 " Resize splits when the window is resized
 augroup resize_automatically
     autocmd!
     au VimResized * :wincmd =
 augroup END
 
-" This is different behavior, but I prefer it.
+" This is different behavior, but it's working okay for now
 nnoremap o o<esc>
 nnoremap O O<esc>
+
 " yank line and paste
 nnoremap yp yyp
 
@@ -145,10 +158,11 @@ map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+
 set wildmenu
 set showcmd
 
-" backspace doesn't need to be on a diet
+" rabid backspace
 set backspace=indent,eol,start
 
 set autoindent
@@ -158,6 +172,7 @@ set autoindent
 set ruler
 " always show the status line
 set laststatus=2
+
 " cross-session undoing
 if has("persistent_undo") || exists("+undofile")
     set undofile
@@ -169,6 +184,7 @@ set confirm
 set mouse=a
 "set cmdheight=2
 set ignorecase
+" shortcut timeouts
 set notimeout ttimeout ttimeoutlen=300
 
 " counting is for computers
@@ -219,7 +235,7 @@ hi link EasyMotionShade  Comment
 syntax enable
 " toggle background color
 call togglebg#map("<F5>")
-set background=light
+set background=dark
 set t_Co=16
 colorscheme solarized
 
