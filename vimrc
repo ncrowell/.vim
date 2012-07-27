@@ -46,14 +46,15 @@ Bundle 'vim-scripts/AutoClose'
 
 " vim status bar
 if $HAVE_VIM_POWERLINE_FONT == "TRUE"
+    " powerline configuration
+    set laststatus=2
+    let g:Powerline_symbols = 'fancy'
     Bundle 'Lokaltog/vim-powerline'
 else
     Bundle 'millermedeiros/vim-statline'
     let g:statline_fugitive = 1
     let g:statline_filename_relative = 1
 endif
-
-
 
 " must go faster
 Bundle 'Lokaltog/vim-easymotion'
@@ -62,9 +63,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 
-" powerline configuration
-set laststatus=2
-let g:Powerline_symbols = 'unicode'
 " align statements in parentheses?
 "Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
@@ -79,18 +77,18 @@ if has("python")
     Bundle 'vim-scripts/Conque-Shell'
 endif
 
-" Don't use pathogen by itself
+" Don't use pathogen by itself - why is this here?
 " call pathogen#infect()
 " call pathogen#helptags()
 
-" possible vulnerability
+" possible vulnerability?
 set nomodeline
 
 " Save folds across file open/close
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
-" Better completion
+" Better completion - where is this from?
 :set completeopt=longest,menuone
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
