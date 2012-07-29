@@ -11,37 +11,27 @@ call vundle#rc()
 
 "vundle handles itself
 Bundle 'gmarik/vundle'
-
 " why need this? (vundle needs it)
 Bundle 'tpope/vim-pathogen'
 
 " disable auto completion popup for python, b/c it was sucking
 let g:acp_behaviorPythonOmniLength = -1
 Bundle 'vim-scripts/AutoComplPop'
+
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/Markdown'
-
 " Tab completion
 Bundle 'ervandew/supertab'
-
 " git
 Bundle 'tpope/vim-fugitive'
-
 "Bundle 'vim-scripts/VimOrganizer'
 Bundle 'vim-scripts/ctags.vim'
-
 Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/a.vim'
-
 Bundle 'vim-scripts/The-NERD-tree'
-" Automatic commenting!
 Bundle 'vim-scripts/The-NERD-Commenter'
-
 Bundle 'vim-scripts/ack.vim'
-
-" Colourful braces
 Bundle 'vim-scripts/rainbow_parentheses.vim'
-" Automatic closing of parentheses/braces/square brackets
 Bundle 'vim-scripts/AutoClose'
 
 " vim status bar
@@ -96,9 +86,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Oh no, I really need to edit my ~/.vimrc RIGHT NOW
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-" Move lines downwards or upwards
-noremap - ddp
-noremap _ ddP
 
 " Be kind to your hands
 inoremap jk <esc>
@@ -108,15 +95,22 @@ inoremap <esc>: <nop>
 " I think these are my favorites
 inoremap j; <esc>:
 inoremap j/ <esc>/
+inoremap ;w <esc>:w<cr>
+inoremap ;w<cr> <esc>:w<cr>
 
-nnoremap H ^
-nnoremap L $
+""""""""""" MOVEMENT """"""""""""""
+" Move lines downwards or upwards
+noremap - ddp
+noremap _ ddP
+
+noremap H g^
+noremap L g_
 
 " Moving across wrapped lines
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 
 " moving between split windows
 nnoremap <c-j> :wincmd j<cr>
@@ -128,6 +122,7 @@ nnoremap <c-l> :wincmd l<cr>
 " and add the removal of search highlighting
 nnoremap <leader>r :nohl<CR><C-L>
 
+"""""""""""""""""""""""""""""""""""
 
 " Better regexes?
 nnoremap / /\v
@@ -146,8 +141,8 @@ augroup resize_automatically
 augroup END
 
 " This is different behavior, but it's working okay for now
-nnoremap o o<esc>
-nnoremap O O<esc>
+"nnoremap o o<esc>
+"nnoremap O O<esc>
 
 " yank line and paste
 nnoremap yp yyp
@@ -168,9 +163,9 @@ set backspace=indent,eol,start
 set autoindent
 "set nostartofline
 
-" display column number in status bar
+" show column number
 set ruler
-" always show the status line
+" always show status line
 set laststatus=2
 
 " cross-session undoing
@@ -182,9 +177,8 @@ endif
 set confirm
 
 set mouse=a
-"set cmdheight=2
 set ignorecase
-" shortcut timeouts
+" timeouts
 set notimeout ttimeout ttimeoutlen=300
 
 " counting is for computers
@@ -215,15 +209,15 @@ set showmatch
 set hlsearch
 set incsearch
 set cindent shiftwidth=4
-" better case handling
 set ignorecase
 set smartcase
 
-"""""""" JAVA """"""""""""""""""
+""""""""" JAVA """"""""""""""""""
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
 
+""""""""" COLOR """""""""""""""""
 "colorscheme desert
 "colorscheme badwolf
 "solarized options
