@@ -71,3 +71,6 @@
 [submodule "bundle/vim-statline"]
 	path = bundle/vim-statline
 	url = git://www.github.com/millermedeiros/vim-statline
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git://www.github.com/Raimondi/delimitMate

@@ -32,7 +32,8 @@ Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'vim-scripts/ack.vim'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
-Bundle 'vim-scripts/AutoClose'
+"Bundle 'vim-scripts/AutoClose'
+Bundle "Raimondi/delimitMate"
 
 " vim status bar
 if $HAVE_VIM_POWERLINE_FONT == "TRUE"
