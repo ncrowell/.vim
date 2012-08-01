@@ -72,6 +72,9 @@ endif
 " call pathogen#infect()
 " call pathogen#helptags()
 
+" cursor in the middle
+set scrolloff=3
+
 " possible vulnerability?
 set nomodeline
 
