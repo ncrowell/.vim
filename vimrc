@@ -117,14 +117,14 @@ noremap gj j
 noremap gk k
 
 " moving between split windows
-nnoremap <c-j> :wincmd j<cr>
-nnoremap <c-k> :wincmd k<cr>
-nnoremap <c-h> :wincmd h<cr>
-nnoremap <c-l> :wincmd l<cr>
+nnoremap <silent> <c-j> :wincmd j<cr>
+nnoremap <silent> <c-k> :wincmd k<cr>
+nnoremap <silent> <c-h> :wincmd h<cr>
+nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
-nnoremap <leader>r :nohl<CR><C-L>
+nnoremap <leader><space> :nohl<CR><C-L>
 
 """""""""""""""""""""""""""""""""""
 
@@ -182,7 +182,6 @@ set confirm
 
 set mouse=a
 set ignorecase
-" timeouts
 set notimeout ttimeout ttimeoutlen=300
 
 " counting is for computers
