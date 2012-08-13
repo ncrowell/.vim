@@ -36,7 +36,7 @@ Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle "Raimondi/delimitMate"
 
 " vim status bar
-if $HAVE_VIM_POWERLINE_FONT == "TRUE"
+if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
     " powerline configuration
     set laststatus=2
     let g:Powerline_symbols = 'fancy'
