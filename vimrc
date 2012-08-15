@@ -34,6 +34,7 @@ Bundle 'vim-scripts/ack.vim'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 "Bundle 'vim-scripts/AutoClose'
 Bundle "Raimondi/delimitMate"
+Bundle 'kien/ctrlp.vim'
 
 " vim status bar
 if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
