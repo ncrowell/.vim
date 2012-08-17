@@ -20,6 +20,7 @@ Bundle 'vim-scripts/AutoComplPop'
 
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/Markdown'
+Bundle 'kchmck/vim-coffee-script'
 " Tab completion
 Bundle 'ervandew/supertab'
 " git
