@@ -1,8 +1,6 @@
 filetype on    " this is some
-filetype off   " weird bug fix. FOR WHAT??? something to do with pathogen?
+filetype off   " weird bug fix for something to do with vundle or pathogen
 set nocompatible
- " I think this is for pathogen
-filetype plugin indent on
 
 let mapleader = ','
 
@@ -21,6 +19,10 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/Markdown'
 Bundle 'kchmck/vim-coffee-script'
+" some kind of bug with vundle, maybe?
+au BufNewFile,BufReadPost *.coffee set ft=coffee
+
+
 " Tab completion
 Bundle 'ervandew/supertab'
 " git
@@ -37,7 +39,7 @@ Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle "Raimondi/delimitMate"
 Bundle 'kien/ctrlp.vim'
 
-" vim status bar
+" vim status bar; environment variable detects custom font
 if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
     " powerline configuration
     set laststatus=2
@@ -49,7 +51,6 @@ else
     let g:statline_filename_relative = 1
 endif
 
-" must go faster
 Bundle 'Lokaltog/vim-easymotion'
 
 " COLOR SCHEMES
@@ -64,18 +65,8 @@ Bundle 'altercation/vim-colors-solarized'
 " maybe I'll use this someday
 Bundle 'sjl/gundo.vim'
 
-" Wait... is this right?
-" needs python
-if has("python")
-    Bundle 'vim-scripts/Conque-Shell'
-endif
-
-" Don't use pathogen by itself - why is this here?
-" call pathogen#infect()
-" call pathogen#helptags()
-
 " cursor in the middle
-set scrolloff=3
+set scrolloff=12
 
 " possible vulnerability?
 set nomodeline
@@ -95,12 +86,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Be kind to your hands
 inoremap jk <esc>
-inoremap fj <esc>
 inoremap <esc> <nop>
 inoremap <esc>: <nop>
+
 " I think these are my favorites
 inoremap j; <esc>:
 inoremap j/ <esc>/
+
 inoremap ;w <esc>:w<cr>
 inoremap ;w<cr> <esc>:w<cr>
 
@@ -137,18 +129,14 @@ vnoremap / /\v
 " Save when losing focus
 augroup save_my_files
     autocmd!
-    au FocusLost * :silent! wall
+    autocmd FocusLost * :silent! wall
 augroup END
 
 " Resize splits when the window is resized
 augroup resize_automatically
     autocmd!
-    au VimResized * :wincmd =
+    autocmd VimResized * :wincmd =
 augroup END
-
-" This is different behavior, but it's working okay for now
-"nnoremap o o<esc>
-"nnoremap O O<esc>
 
 " yank line and paste
 nnoremap yp yyp
@@ -234,7 +222,9 @@ hi link EasyMotionShade  Comment
 syntax enable
 " toggle background color
 call togglebg#map("<F5>")
+" set background=light
 set background=dark
+" use custom colors
 set t_Co=16
 colorscheme solarized
 
@@ -243,3 +233,6 @@ colorscheme solarized
 " least, it didn't when I was using it for the first time, editing an
 " Octave .m file. TODO maybe just change rainbow parens highlight
 " targets for Solarized?
+
+" Vundle wants this
+filetype plugin indent on
