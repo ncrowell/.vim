@@ -43,9 +43,6 @@
 	path = bundle/ack.vim
 	url = git://github.com/vim-scripts/ack.vim
     ignore = untracked
-[submodule "bundle/rainbow_parentheses.vim"]
-	path = bundle/rainbow_parentheses.vim
-	url = git://github.com/vim-scripts/rainbow_parentheses.vim
 [submodule "bundle/AutoClose"]
 	path = bundle/AutoClose
 	url = git://github.com/vim-scripts/AutoClose
