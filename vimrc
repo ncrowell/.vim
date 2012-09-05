@@ -13,8 +13,9 @@ set showcmd
 if has("persistent_undo") || exists("+undofile")
     set undofile
 endif
+" always on
 set laststatus=2
-"
+
 " duh
 nnoremap ; :
 nnoremap , ;
@@ -26,14 +27,18 @@ set scrolloff=20
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
-" Better completion - where is this from?
+" Better completion - where is this from? is it true?
 set completeopt=longest,menuone
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" following stolen from sjl
+" so much stolen from sjl
 " Oh no, I really need to edit my vimrc RIGHT NOW
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Better regexes?
+nnoremap / /\v
+vnoremap / /\v
 
 """""""""" MODES """"""""""""""""
 
@@ -43,7 +48,7 @@ inoremap <esc> <nop>
 
 " I think these are my favorites
 inoremap j; <esc>:
-inoremap j/ <esc>/
+inoremap j/ <esc>/\v
 
 inoremap ;w <esc>:w<cr>
 
@@ -70,13 +75,9 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
-nnoremap <leader><space> :nohl<CR><C-L>
+nnoremap <leader><space> :nohlsearch<CR><C-L>
 
 """""""""""""""""""""""""""""""""""
-
-" Better regexes?
-nnoremap / /\v
-vnoremap / /\v
 
 " Save when losing focus
 augroup save_my_files
@@ -120,6 +121,7 @@ set ruler
 
 " TODO what's the right thing here?
 augroup ruby_indenting
+    autocmd!
     autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
 augroup END
 
@@ -138,6 +140,7 @@ set smartcase
 """"""""" JAVA """"""""""""""""""
 let java_highlight_all=1
 let java_highlight_functions="style"
+" why?
 let java_allow_cpp_keywords=1
 
 " possible vulnerability?

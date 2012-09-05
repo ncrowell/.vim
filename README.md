@@ -1,6 +1,6 @@
 Installation:
 
-    git clone git@bitbucket.org:ncrowell/vim.git
+    git clone git@github.com:ncrowell/.vim.git
 
 Create symlinks:
 

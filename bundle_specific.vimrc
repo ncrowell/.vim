@@ -35,12 +35,14 @@ Bundle "Raimondi/delimitMate"
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 "source /Users/nicolascrowell/.vim/mypairs.vim
+
 " forever rainbow
 augroup Rainbow_set
     autocmd VimEnter * RainbowParenthesesToggle
-    autocmd Syntax * RainbowParenthesesLoadRound
     autocmd Syntax * RainbowParenthesesLoadBraces
+    autocmd Syntax * RainbowParenthesesLoadRound
     autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadChevrons
 augroup END
 
 Bundle 'Lokaltog/vim-easymotion'
@@ -70,7 +72,9 @@ Bundle 'altercation/vim-colors-solarized'
 " http://stackoverflow.com/questions/6126871/easymotion-coloring-in-vim-with-solarized-theme
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
+
 syntax enable
+
 " toggle background color
 call togglebg#map("<F5>")
 " set background=light
