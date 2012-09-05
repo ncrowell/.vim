@@ -20,8 +20,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/Markdown'
 Bundle 'kchmck/vim-coffee-script'
 " some kind of bug with vundle, maybe?
-au BufNewFile,BufReadPost *.coffee set ft=coffee
-
+autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
 
 " Tab completion
 Bundle 'ervandew/supertab'
@@ -34,8 +33,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'vim-scripts/ack.vim'
-Bundle 'vim-scripts/rainbow_parentheses.vim'
-"Bundle 'vim-scripts/AutoClose'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle "Raimondi/delimitMate"
 Bundle 'kien/ctrlp.vim'
 
@@ -77,10 +75,10 @@ au BufWinEnter *.* silent loadview
 
 " Better completion - where is this from?
 set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Basically this entire block of stuff is courtesy of Steve Losh
-" Oh no, I really need to edit my ~/.vimrc RIGHT NOW
+" following stolen from sjl
+" Oh no, I really need to edit my vimrc RIGHT NOW
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -89,12 +87,13 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 inoremap <esc>: <nop>
 
+"nnoremap jk jk<esc> 
+
 " I think these are my favorites
 inoremap j; <esc>:
 inoremap j/ <esc>/
 
 inoremap ;w <esc>:w<cr>
-inoremap ;w<cr> <esc>:w<cr>
 
 """"""""""" MOVEMENT """"""""""""""
 " Move lines downwards or upwards
@@ -183,15 +182,24 @@ endif
 nnoremap ; :
 nnoremap , ;
 
+set pastetoggle=<F6>
+
 " fold inside of braces
-nore @k zfa{
+nnore @k zfa{
 
 """""""" SPACE """"""""""""""""""""
 set textwidth=72
 set shiftwidth=4
 set tabstop=4
-set softtabstop=2
 set expandtab
+set cindent
+
+"set softtabstop=2
+" TODO what's the right thing here?
+augroup ruby_indenting
+    autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
+augroup END
+
 if  exists("+colorcolumn")
     set colorcolumn=72
 endif
@@ -201,7 +209,6 @@ endif
 set showmatch
 set hlsearch
 set incsearch
-set cindent shiftwidth=4
 set ignorecase
 set smartcase
 
