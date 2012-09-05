@@ -1,4 +1,4 @@
-source /Users/nicolascrowell/.vim/bundle_specific.vimrc
+source $HOME/.vim/bundle_specific.vimrc
 
 let mapleader = ','
 set confirm
