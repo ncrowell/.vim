@@ -1,78 +1,26 @@
-filetype on    " this is some
-filetype off   " weird bug fix for something to do with vundle or pathogen
-set nocompatible
+source /Users/nicolascrowell/.vim/bundle_specific.vimrc
 
 let mapleader = ','
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-"vundle handles itself
-Bundle 'gmarik/vundle'
-" why need this? (vundle needs it)
-Bundle 'tpope/vim-pathogen'
-
-" disable auto completion popup for python, b/c it was sucking
-let g:acp_behaviorPythonOmniLength = -1
-Bundle 'vim-scripts/AutoComplPop'
-
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/Markdown'
-Bundle 'kchmck/vim-coffee-script'
-" some kind of bug with vundle, maybe?
-autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
-
-" Tab completion
-Bundle 'ervandew/supertab'
-" git
-Bundle 'tpope/vim-fugitive'
-"Bundle 'vim-scripts/VimOrganizer'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/surround.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/The-NERD-tree'
-Bundle 'vim-scripts/The-NERD-Commenter'
-Bundle 'vim-scripts/ack.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-Bundle "Raimondi/delimitMate"
-Bundle 'kien/ctrlp.vim'
-
-" vim status bar; environment variable detects custom font
-if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
-    " powerline configuration
-    set laststatus=2
-    let g:Powerline_symbols = 'fancy'
-    Bundle 'Lokaltog/vim-powerline'
-else
-    Bundle 'millermedeiros/vim-statline'
-    let g:statline_fugitive = 1
-    let g:statline_filename_relative = 1
+set confirm
+set mouse=i
+set notimeout ttimeout ttimeoutlen=300
+" crontab -e
+set backupcopy=yes
+set pastetoggle=<F6>
+set lazyredraw
+set wildmenu
+set showcmd
+if has("persistent_undo") || exists("+undofile")
+    set undofile
 endif
-
-Bundle 'Lokaltog/vim-easymotion'
-
-" COLOR SCHEMES
-Bundle 'vim-scripts/badwolf'
-Bundle 'altercation/vim-colors-solarized'
-
-" align statements in parentheses?
-"Bundle 'git://github.com/vim-scripts/Align.vim.git'
-" aligning statements on a specific character, ie. equals sign
-"Bundle 'git://github.com/vim-scripts/Align.git'
-
-" maybe I'll use this someday
-Bundle 'sjl/gundo.vim'
+set laststatus=2
+"
+" duh
+nnoremap ; :
+nnoremap , ;
 
 " cursor in the middle
-set scrolloff=12
-
-" possible vulnerability?
-set nomodeline
+set scrolloff=20
 
 " Save folds across file open/close
 au BufWinLeave *.* mkview
@@ -87,12 +35,11 @@ set completeopt=longest,menuone
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+"""""""""" MODES """"""""""""""""
+
 " Be kind to your hands
 inoremap jk <esc>
 inoremap <esc> <nop>
-inoremap <esc>: <nop>
-
-"nnoremap jk jk<esc> 
 
 " I think these are my favorites
 inoremap j; <esc>:
@@ -105,6 +52,7 @@ inoremap ;w <esc>:w<cr>
 noremap - ddp
 noremap _ ddP
 
+" line ends
 noremap H g^
 noremap L g_
 
@@ -142,52 +90,19 @@ augroup resize_automatically
     autocmd VimResized * :wincmd =
 augroup END
 
-" yank line and paste
-nnoremap yp yyp
-
 " courtesy of the vim wiki: display the syntax highlighting groups
 " underneath the cursor
 map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-
-set wildmenu
-set showcmd
-
 " rabid backspace
 set backspace=indent,eol,start
-
-set autoindent
-"set nostartofline
-
-" show column number
-set ruler
-" always show status line
-set laststatus=2
-
-" cross-session undoing
-if has("persistent_undo") || exists("+undofile")
-    set undofile
-endif
-
-" important things require discussion
-set confirm
-
-set mouse=a
-set ignorecase
-set notimeout ttimeout ttimeoutlen=300
 
 " counting is for computers
 if exists("+relativenumber")
     set relativenumber
 endif
-
-" duh
-nnoremap ; :
-nnoremap , ;
-
-set pastetoggle=<F6>
 
 " fold inside of braces
 nnore @k zfa{
@@ -197,9 +112,12 @@ set textwidth=72
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set smarttab
 set cindent
 
-"set softtabstop=2
+" show column number
+set ruler
+
 " TODO what's the right thing here?
 augroup ruby_indenting
     autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
@@ -222,29 +140,5 @@ let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
 
-""""""""" COLOR """""""""""""""""
-"colorscheme desert
-"colorscheme badwolf
-"solarized options
-" change the default EasyMotion shading to something more readable with
-" Solarized: courtesy of
-" http://stackoverflow.com/questions/6126871/easymotion-coloring-in-vim-with-solarized-theme
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-syntax enable
-" toggle background color
-call togglebg#map("<F5>")
-" set background=light
-set background=dark
-" use custom colors
-set t_Co=16
-colorscheme solarized
-
-" turn on the features of the rainbow_parentheses plugin *after* syntax
-" highlighting commands are entered - otherwise, it won't work. At
-" least, it didn't when I was using it for the first time, editing an
-" Octave .m file. TODO maybe just change rainbow parens highlight
-" targets for Solarized?
-
-" Vundle wants this
-filetype plugin indent on
+" possible vulnerability?
+set nomodeline
