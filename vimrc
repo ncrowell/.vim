@@ -16,6 +16,11 @@ endif
 " always on
 set laststatus=2
 
+" vim wiki: insert mode times out to normal mode
+autocmd CursorHoldI * stopinsert
+autocmd InsertEnter * let  l:updaterestore = &l:updatetime | set l:updatetime=15000
+autocmd InsertLeave * let &l:updatetime    = l:updaterestore
+
 " duh
 nnoremap ; :
 nnoremap , ;
@@ -29,10 +34,9 @@ au BufWinEnter *.* silent loadview
 
 " Better completion - where is this from? is it true?
 set completeopt=longest,menuone
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " so much stolen from sjl
-" Oh no, I really need to edit my vimrc RIGHT NOW
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -106,28 +110,36 @@ if exists("+relativenumber")
 endif
 
 " fold inside of braces
-nnore @k zfa{
+nnoremap @k zfa{
 
 """""""" SPACE """"""""""""""""""""
-set textwidth=72
 set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
 set cindent
 
-" show column number
+" Line width settings
+set textwidth=72
 set ruler
 
-" TODO what's the right thing here?
+augroup column_setting
+    autocmd!
+    autocmd BufNewFile,BufRead *.java set textwidth=80   
+augroup END
+
+if  exists("+colorcolumn")
+    let &colorcolumn = &textwidth
+    augroup column_setting_color
+        autocmd!
+        autocmd BufNewFile,BufReadPost let &colorcolumn = &textwidth 
+    augroup END
+endif
+
 augroup ruby_indenting
     autocmd!
     autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
 augroup END
-
-if  exists("+colorcolumn")
-    set colorcolumn=72
-endif
 
 """""""" SEARCHING """"""""""""""""
 " highlight search results
