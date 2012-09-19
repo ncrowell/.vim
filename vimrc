@@ -3,7 +3,7 @@ source $HOME/.vim/bundle_specific.vimrc
 let mapleader = ','
 set confirm
 set mouse=i
-set notimeout ttimeout ttimeoutlen=300
+set notimeout ttimeout ttimeoutlen=200
 
 " crontab -e
 set backupcopy=yes
@@ -16,6 +16,12 @@ if has("persistent_undo") || exists("+undofile")
     set undofile
 endif
 set laststatus=2
+" counting is for computers
+if exists("+relativenumber")
+    set relativenumber
+endif
+" fold inside of braces
+nnoremap @k zfa{
 
 " duh
 nnoremap ; :
@@ -91,14 +97,6 @@ noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
 " rabid backspace
 set backspace=indent,eol,start
 
-" counting is for computers
-if exists("+relativenumber")
-    set relativenumber
-endif
-
-" fold inside of braces
-nnoremap @k zfa{
-
 """""""" SPACE """"""""""""""""""""
 set shiftwidth=4 tabstop=4
 set expandtab smarttab cindent
@@ -108,19 +106,19 @@ set textwidth=72 ruler
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
-" vim wiki: insert mode times out to normal mode after 3 seconds
+" vim wiki: insert mode times out to normal mode after 8 seconds
 augroup itimeout
     autocmd!
     autocmd CursorHoldI * stopinsert
-    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=3000
+    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=8000
     autocmd InsertLeave * let updatetime = updaterestore
 augroup END
 
 augroup savefolds
     autocmd!
     " Save folds across file open/close
-    au BufWinLeave *.* mkview
-    au BufWinEnter *.* silent loadview
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* silent loadview
 augroup END
 
 " Save when losing focus
@@ -130,7 +128,7 @@ augroup save_my_files
 augroup END
 
 " Resize splits when the window is resized
-augroup resize_automatically
+augroup resize_splits
     autocmd!
     autocmd VimResized * :wincmd =
 augroup END
