@@ -16,10 +16,13 @@ endif
 " always on
 set laststatus=2
 
-" vim wiki: insert mode times out to normal mode
-autocmd CursorHoldI * stopinsert
-autocmd InsertEnter * let  l:updaterestore = &l:updatetime | set l:updatetime=15000
-autocmd InsertLeave * let &l:updatetime    = l:updaterestore
+augroup itimeout
+    autocmd!
+    " vim wiki: insert mode times out to normal mode
+    autocmd CursorHoldI * stopinsert
+    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=3000
+    autocmd InsertLeave * let updatetime = updaterestore
+augroup END
 
 " duh
 nnoremap ; :
@@ -39,6 +42,11 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" hack: are we on a mac?
+if ( stridx($HOME, "/Users/") == 0 )
+    nnoremap <c-c> :!pbcopy < %<cr>
+endif
 
 " Better regexes?
 nnoremap / /\v
@@ -97,7 +105,7 @@ augroup END
 
 " courtesy of the vim wiki: display the syntax highlighting groups
 " underneath the cursor
-map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
