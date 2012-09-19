@@ -4,8 +4,10 @@ let mapleader = ','
 set confirm
 set mouse=i
 set notimeout ttimeout ttimeoutlen=300
+
 " crontab -e
 set backupcopy=yes
+
 set pastetoggle=<F6>
 set lazyredraw
 set wildmenu
@@ -13,16 +15,7 @@ set showcmd
 if has("persistent_undo") || exists("+undofile")
     set undofile
 endif
-" always on
 set laststatus=2
-
-augroup itimeout
-    autocmd!
-    " vim wiki: insert mode times out to normal mode
-    autocmd CursorHoldI * stopinsert
-    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=3000
-    autocmd InsertLeave * let updatetime = updaterestore
-augroup END
 
 " duh
 nnoremap ; :
@@ -30,10 +23,6 @@ nnoremap , ;
 
 " cursor in the middle
 set scrolloff=20
-
-" Save folds across file open/close
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
 
 " Better completion - where is this from? is it true?
 set completeopt=longest,menuone
@@ -56,6 +45,7 @@ vnoremap / /\v
 
 " Be kind to your hands
 inoremap jk <esc>
+inoremap Jk <esc>
 inoremap <esc> <nop>
 
 " I think these are my favorites
@@ -91,19 +81,8 @@ nnoremap <leader><space> :nohlsearch<CR><C-L>
 
 """""""""""""""""""""""""""""""""""
 
-" Save when losing focus
-augroup save_my_files
-    autocmd!
-    autocmd FocusLost * :silent! wall
-augroup END
 
-" Resize splits when the window is resized
-augroup resize_automatically
-    autocmd!
-    autocmd VimResized * :wincmd =
-augroup END
-
-" courtesy of the vim wiki: display the syntax highlighting groups
+" vim wiki: display the syntax highlighting groups
 " underneath the cursor
 noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -121,19 +100,49 @@ endif
 nnoremap @k zfa{
 
 """""""" SPACE """"""""""""""""""""
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set smarttab
-set cindent
+set shiftwidth=4 tabstop=4
+set expandtab smarttab cindent
 
 " Line width settings
-set textwidth=72
-set ruler
+set textwidth=72 ruler
+
+""""""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
+
+" vim wiki: insert mode times out to normal mode after 3 seconds
+augroup itimeout
+    autocmd!
+    autocmd CursorHoldI * stopinsert
+    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=3000
+    autocmd InsertLeave * let updatetime = updaterestore
+augroup END
+
+augroup savefolds
+    autocmd!
+    " Save folds across file open/close
+    au BufWinLeave *.* mkview
+    au BufWinEnter *.* silent loadview
+augroup END
+
+" Save when losing focus
+augroup save_my_files
+    autocmd!
+    autocmd FocusLost * :silent! wall
+augroup END
+
+" Resize splits when the window is resized
+augroup resize_automatically
+    autocmd!
+    autocmd VimResized * :wincmd =
+augroup END
 
 augroup column_setting
     autocmd!
     autocmd BufNewFile,BufRead *.java set textwidth=80   
+augroup END
+
+augroup ruby_indenting
+    autocmd!
+    autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
 augroup END
 
 if  exists("+colorcolumn")
@@ -144,18 +153,12 @@ if  exists("+colorcolumn")
     augroup END
 endif
 
-augroup ruby_indenting
-    autocmd!
-    autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
-augroup END
+""""""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
 """""""" SEARCHING """"""""""""""""
 " highlight search results
-set showmatch
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set showmatch hlsearch incsearch
+set ignorecase smartcase
 
 """"""""" JAVA """"""""""""""""""
 let java_highlight_all=1
