@@ -4,13 +4,20 @@ let mapleader = ','
 set confirm
 set mouse=i
 set notimeout ttimeout ttimeoutlen=200
+" stop cursor from blinking in guivim
+set guicursor+=a:blinkon0
 
 " crontab -e
 set backupcopy=yes
 
 set pastetoggle=<F6>
 set lazyredraw
+
 set wildmenu
+" Better completion - where is this from? is it true?
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 set showcmd
 if has("persistent_undo") || exists("+undofile")
     set undofile
@@ -29,10 +36,6 @@ nnoremap , ;
 
 " cursor in the middle
 set scrolloff=20
-
-" Better completion - where is this from? is it true?
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -57,7 +60,6 @@ inoremap <esc> <nop>
 " I think these are my favorites
 inoremap j; <esc>:
 inoremap j/ <esc>/\v
-
 inoremap ;w <esc>:w<cr>
 
 """"""""""" MOVEMENT """"""""""""""
@@ -87,7 +89,6 @@ nnoremap <leader><space> :nohlsearch<CR><C-L>
 
 """""""""""""""""""""""""""""""""""
 
-
 " vim wiki: display the syntax highlighting groups
 " underneath the cursor
 noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -100,17 +101,15 @@ set backspace=indent,eol,start
 """""""" SPACE """"""""""""""""""""
 set shiftwidth=4 tabstop=4
 set expandtab smarttab cindent
-
-" Line width settings
 set textwidth=72 ruler
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
-" vim wiki: insert mode times out to normal mode after 8 seconds
+" vim wiki: insert mode times out to normal mode after 12 seconds
 augroup itimeout
     autocmd!
     autocmd CursorHoldI * stopinsert
-    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=8000
+    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=12000
     autocmd InsertLeave * let updatetime = updaterestore
 augroup END
 
@@ -141,6 +140,11 @@ augroup END
 augroup ruby_indenting
     autocmd!
     autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
+augroup END
+
+augroup text_indenting
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt set nocindent
 augroup END
 
 if  exists("+colorcolumn")
