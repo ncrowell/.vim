@@ -32,10 +32,15 @@ nnoremap @k zfa{
 
 " duh
 nnoremap ; :
-nnoremap , ;
+" this won't work with leader=,
+" and I don't use it
+"nnoremap , ;
 
-" cursor in the middle
-set scrolloff=20
+" repeat and go back
+nnoremap . mm.`m
+nnoremap ,. .
+
+set scrolloff=40
 
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -52,30 +57,49 @@ vnoremap / /\v
 
 """""""""" MODES """"""""""""""""
 
-" Be kind to your hands
-inoremap jk <esc>
-inoremap Jk <esc>
-inoremap <esc> <nop>
+" these might be confusing mappings to a new USER just change lastname
+" to something that is a substring of the environment variable USER, or
+" remove the conditional altogether.
+let lastname = "crowell"
+if ( stridx(tolower($USER), lastname) != -1 )
+    " Be kind to your hands
+    inoremap jk <esc>
+    inoremap Jk <esc>
+    " this is good for learning, but it gets dangerous...
+    "inoremap <esc> <nop>
 
-" I think these are my favorites
-inoremap j; <esc>:
-inoremap j/ <esc>/\v
-inoremap ;w <esc>:w<cr>
+    " I think these are my favorites
+    inoremap j; <esc>:
+    inoremap j/ <esc>/\v
+    inoremap ;w <esc>:w<cr>
+endif
 
 """"""""""" MOVEMENT """"""""""""""
-" Move lines downwards or upwards
+" Move lines downwards or upwards: I haven't really used this.
 noremap - ddp
 noremap _ ddP
 
-" line ends
+" better
 noremap H g^
 noremap L g_
+
+augroup c_java_line_endings
+    autocmd!
+    autocmd FileType java,c noremap <buffer> ,a A;<esc>
+augroup END
 
 " Moving across wrapped lines
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+
+nnoremap W w
+nnoremap w W
+nnoremap B b
+nnoremap b B
+
+nnoremap <leader>o o<esc>:w<cr>
 
 " moving between split windows
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -105,13 +129,13 @@ set textwidth=72 ruler
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
-" vim wiki: insert mode times out to normal mode after 12 seconds
-augroup itimeout
-    autocmd!
-    autocmd CursorHoldI * stopinsert
-    autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=12000
-    autocmd InsertLeave * let updatetime = updaterestore
-augroup END
+" vim wiki: insert mode times out to normal mode after 8 seconds
+"augroup itimeout
+    "autocmd!
+    "autocmd CursorHoldI * stopinsert
+    "autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=12000
+    "autocmd InsertLeave * let updatetime = updaterestore
+"augroup END
 
 augroup savefolds
     autocmd!
@@ -132,23 +156,28 @@ augroup resize_splits
     autocmd VimResized * :wincmd =
 augroup END
 
-augroup column_setting
-    autocmd!
-    autocmd BufNewFile,BufRead *.java set textwidth=80   
-augroup END
-
 augroup ruby_indenting
     autocmd!
-    autocmd BufNewFile,BufReadPost *.rb set shiftwidth=2 tabstop=2
+    autocmd FileType rb setlocal shiftwidth=2 tabstop=2
 augroup END
 
 augroup text_indenting
     autocmd!
-    autocmd BufNewFile,BufRead *.txt set nocindent
+    autocmd FileType txt,gitcommit setlocal nocindent
+augroup END
+
+augroup java
+    autocmd!
+    autocmd FileType java set textwidth=80 colorcolumn=80
+    " from stackoverflow
+    " TODO FIXME figure out how to make this a local setting
+    autocmd FileType java setlocal makeprg=javac\ %
+    autocmd Filetype java setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 augroup END
 
 if  exists("+colorcolumn")
     let &colorcolumn = &textwidth
+    " I don't this autocommand works the way I think it should ...
     augroup column_setting_color
         autocmd!
         autocmd BufNewFile,BufReadPost let &colorcolumn = &textwidth 
