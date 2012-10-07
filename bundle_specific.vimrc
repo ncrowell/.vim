@@ -1,5 +1,5 @@
-filetype on    " this is some
-filetype off   " weird bug fix for something to do with vundle or pathogen
+filetype on    " this is some weird bug fix for something  
+filetype off   " to do with vundle or pathogen
 
 set nocompatible
 set rtp+=~/.vim/bundle/vundle/
@@ -14,6 +14,7 @@ Bundle 'tpope/vim-pathogen'
 let g:acp_behaviorPythonOmniLength = -1
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'scrooloose/syntastic'
+"let g:syntastic_mode_map['active_filetypes'] = ['java']
 Bundle 'vim-scripts/Markdown'
 Bundle 'kchmck/vim-coffee-script'
 " some kind of bug with vundle, maybe?
@@ -73,6 +74,7 @@ Bundle 'altercation/vim-colors-solarized'
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
+" FIXME : why is this enable?
 syntax enable
 
 " toggle background color

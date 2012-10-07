@@ -40,7 +40,7 @@ nnoremap ; :
 nnoremap . mm.`m
 nnoremap ,. .
 
-set scrolloff=40
+set scrolloff=80
 
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -65,19 +65,26 @@ if ( stridx(tolower($USER), lastname) != -1 )
     " Be kind to your hands
     inoremap jk <esc>
     inoremap Jk <esc>
+    inoremap kl <esc>
+    inoremap df <esc>
     " this is good for learning, but it gets dangerous...
     "inoremap <esc> <nop>
 
     " I think these are my favorites
     inoremap j; <esc>:
     inoremap j/ <esc>/\v
-    inoremap ;w <esc>:w<cr>
+    inoremap ;w <esc>:w
 endif
 
 """"""""""" MOVEMENT """"""""""""""
+" useful for markdown headings
+noremap - YpVr-
+noremap <c-=> YpVr=
+
+" TODO WHY DON'T THESE WORK
 " Move lines downwards or upwards: I haven't really used this.
-noremap - ddp
-noremap _ ddP
+"noremap <c--> ddp
+"noremap <c-_> ddP
 
 " better
 noremap H g^
@@ -88,18 +95,18 @@ augroup c_java_line_endings
     autocmd FileType java,c noremap <buffer> ,a A;<esc>
 augroup END
 
+" lchdir to containing folder of this buffer
+noremap <leader>ts :lcd %:p:h<esc>
+
 " Moving across wrapped lines
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
 
-nnoremap W w
-nnoremap w W
-nnoremap B b
-nnoremap b B
-
-nnoremap <leader>o o<esc>:w<cr>
+"nnoremap <leader>o o<esc>:w<cr>
+vnoremap o <esc>o<esc>v
+vnoremap O <esc>O<esc>v
 
 " moving between split windows
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -124,8 +131,12 @@ set backspace=indent,eol,start
 
 """""""" SPACE """"""""""""""""""""
 set shiftwidth=4 tabstop=4
-set expandtab smarttab cindent
+set expandtab smarttab
 set textwidth=72 ruler
+
+" TODO set cindent when FileType is set for anything except for txt and
+" gitcommit and I guess some others
+set cindent
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
@@ -163,12 +174,14 @@ augroup END
 
 augroup text_indenting
     autocmd!
+    autocmd BufNewFile,BufRead *.txt setlocal ft=txt
     autocmd FileType txt,gitcommit setlocal nocindent
+    autocmd Filetype txt iabbrev i I
 augroup END
 
 augroup java
     autocmd!
-    autocmd FileType java set textwidth=80 colorcolumn=80
+    autocmd FileType java setlocal textwidth=80 colorcolumn=80
     " from stackoverflow
     " TODO FIXME figure out how to make this a local setting
     autocmd FileType java setlocal makeprg=javac\ %
