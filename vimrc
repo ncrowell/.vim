@@ -32,11 +32,8 @@ nnoremap @k zfa{
 
 " duh
 nnoremap ; :
-" this won't work with leader=,
-" and I don't use it
-"nnoremap , ;
 
-" repeat and go back
+" repeat and go back - yess. uses register m.
 nnoremap . mm.`m
 nnoremap ,. .
 
@@ -44,11 +41,14 @@ set scrolloff=80
 
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>tv :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " hack: are we on a mac?
 if ( stridx($HOME, "/Users/") == 0 )
     nnoremap <c-c> :!pbcopy < %<cr>
+else
+    nnoremap <c-c> :echo "UnsupportedOperationException: How do you copy and paste?"<cr>
 endif
 
 " Better regexes?
@@ -65,7 +65,6 @@ if ( stridx(tolower($USER), lastname) != -1 )
     " Be kind to your hands
     inoremap jk <esc>
     inoremap Jk <esc>
-    inoremap kl <esc>
     inoremap df <esc>
     " this is good for learning, but it gets dangerous...
     "inoremap <esc> <nop>
@@ -79,7 +78,7 @@ endif
 """"""""""" MOVEMENT """"""""""""""
 " useful for markdown headings
 noremap - YpVr-
-noremap <c-=> YpVr=
+"noremap <c-=> YpVr=
 
 " TODO WHY DON'T THESE WORK
 " Move lines downwards or upwards: I haven't really used this.
@@ -92,7 +91,7 @@ noremap L g_
 
 augroup c_java_line_endings
     autocmd!
-    autocmd FileType java,c noremap <buffer> ,a A;<esc>
+    autocmd FileType java,c noremap <buffer> ,a mmA;<esc>`m
 augroup END
 
 " lchdir to containing folder of this buffer
@@ -107,6 +106,10 @@ noremap gk k
 "nnoremap <leader>o o<esc>:w<cr>
 vnoremap o <esc>o<esc>v
 vnoremap O <esc>O<esc>v
+
+" vimtips: highlight something in visual, hit c-x, highlight something
+" else, hit c-x, they should be swapped
+vnoremap <C-X> <Esc>`.``gvP``P
 
 " moving between split windows
 nnoremap <silent> <c-j> :wincmd j<cr>
@@ -130,13 +133,15 @@ noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
 set backspace=indent,eol,start
 
 """""""" SPACE """"""""""""""""""""
-set shiftwidth=4 tabstop=4
+set shiftwidth=2 tabstop=2
 set expandtab smarttab
-set textwidth=72 ruler
+set copyindent preserveindent
+set textwidth=79 ruler
 
 " TODO set cindent when FileType is set for anything except for txt and
 " gitcommit and I guess some others
-set cindent
+"set smartindent autoindent
+"set cindent
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
@@ -176,15 +181,14 @@ augroup text_indenting
     autocmd!
     autocmd BufNewFile,BufRead *.txt setlocal ft=txt
     autocmd FileType txt,gitcommit setlocal nocindent
-    autocmd Filetype txt iabbrev i I
+    autocmd Filetype txt iabbrev <buffer> i I
 augroup END
 
 augroup java
     autocmd!
     autocmd FileType java setlocal textwidth=80 colorcolumn=80
     " from stackoverflow
-    " TODO FIXME figure out how to make this a local setting
-    autocmd FileType java setlocal makeprg=javac\ %
+    autocmd FileType java setlocal makeprg=javac\ -g\ "%"
     autocmd Filetype java setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 augroup END
 
@@ -207,7 +211,6 @@ set ignorecase smartcase
 """"""""" JAVA """"""""""""""""""
 let java_highlight_all=1
 let java_highlight_functions="style"
-" why?
 let java_allow_cpp_keywords=1
 
 " possible vulnerability?
