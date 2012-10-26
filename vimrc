@@ -76,23 +76,10 @@ if ( stridx(tolower($USER), lastname) != -1 )
 endif
 
 """"""""""" MOVEMENT """"""""""""""
-" useful for markdown headings
-noremap - YpVr-
-"noremap <c-=> YpVr=
-
-" TODO WHY DON'T THESE WORK
-" Move lines downwards or upwards: I haven't really used this.
-"noremap <c--> ddp
-"noremap <c-_> ddP
 
 " better
 noremap H g^
 noremap L g_
-
-augroup c_java_line_endings
-    autocmd!
-    autocmd FileType java,c noremap <buffer> ,a mmA;<esc>`m
-augroup END
 
 " lchdir to containing folder of this buffer
 noremap <leader>ts :lcd %:p:h<esc>
@@ -133,15 +120,10 @@ noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
 set backspace=indent,eol,start
 
 """""""" SPACE """"""""""""""""""""
-set shiftwidth=2 tabstop=2
+set shiftwidth=4 tabstop=4
 set expandtab smarttab
 set copyindent preserveindent
 set textwidth=79 ruler
-
-" TODO set cindent when FileType is set for anything except for txt and
-" gitcommit and I guess some others
-"set smartindent autoindent
-"set cindent
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
@@ -172,26 +154,6 @@ augroup resize_splits
     autocmd VimResized * :wincmd =
 augroup END
 
-augroup ruby_indenting
-    autocmd!
-    autocmd FileType rb setlocal shiftwidth=2 tabstop=2
-augroup END
-
-augroup text_indenting
-    autocmd!
-    autocmd BufNewFile,BufRead *.txt setlocal ft=txt
-    autocmd FileType txt,gitcommit setlocal nocindent
-    autocmd Filetype txt iabbrev <buffer> i I
-augroup END
-
-augroup java
-    autocmd!
-    autocmd FileType java setlocal textwidth=80 colorcolumn=80
-    " from stackoverflow
-    autocmd FileType java setlocal makeprg=javac\ -g\ "%"
-    autocmd Filetype java setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-augroup END
-
 if  exists("+colorcolumn")
     let &colorcolumn = &textwidth
     " I don't this autocommand works the way I think it should ...
@@ -207,11 +169,6 @@ endif
 " highlight search results
 set showmatch hlsearch incsearch
 set ignorecase smartcase
-
-""""""""" JAVA """"""""""""""""""
-let java_highlight_all=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords=1
 
 " possible vulnerability?
 set nomodeline
