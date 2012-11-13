@@ -16,7 +16,6 @@ set lazyredraw
 set wildmenu
 " Better completion - where is this from? is it true?
 set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set showcmd
 if has("persistent_undo") || exists("+undofile")
@@ -63,11 +62,8 @@ vnoremap / /\v
 let lastname = "crowell"
 if ( stridx(tolower($USER), lastname) != -1 )
     " Be kind to your hands
-    inoremap jk <esc>
+    inoremap jk <esc>:w<CR>
     inoremap Jk <esc>
-    inoremap df <esc>
-    " this is good for learning, but it gets dangerous...
-    "inoremap <esc> <nop>
 
     " I think these are my favorites
     inoremap j; <esc>:
@@ -93,6 +89,14 @@ noremap gk k
 "nnoremap <leader>o o<esc>:w<cr>
 vnoremap o <esc>o<esc>v
 vnoremap O <esc>O<esc>v
+
+nnoremap P mm[p==`m
+nnoremap p mm]p==`m
+
+nnoremap q [
+nnoremap z ]
+nnoremap <leader>m q
+nnoremap <leader>z z
 
 " vimtips: highlight something in visual, hit c-x, highlight something
 " else, hit c-x, they should be swapped
@@ -120,7 +124,7 @@ noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
 set backspace=indent,eol,start
 
 """""""" SPACE """"""""""""""""""""
-set shiftwidth=4 tabstop=4
+set shiftwidth=4 tabstop=4 softtabstop=4
 set expandtab smarttab
 set copyindent preserveindent
 set textwidth=79 ruler
