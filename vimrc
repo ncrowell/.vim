@@ -23,10 +23,13 @@ if has("persistent_undo") || exists("+undofile")
     set undofile
 endif
 set laststatus=2
-" counting is for computers
+
 if exists("+relativenumber")
     set relativenumber
+else
+    set number
 endif
+
 " fold inside of braces
 nnoremap @k zfa{
 
@@ -45,7 +48,7 @@ nnoremap <leader>tv :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " hack: are we on a mac?
-if ( stridx($HOME, "/Users/") == 0 )
+if (stridx($HOME, "/Users/") == 0)
     nnoremap <c-c> :!pbcopy < %<cr>
 else
     nnoremap <c-c> :echo "UnsupportedOperationException: How do you copy and paste?"<cr>
