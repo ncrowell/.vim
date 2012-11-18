@@ -4,3 +4,5 @@ setlocal shiftwidth=2
 setlocal textwidth=79
 setlocal smarttab
 setlocal expandtab
+
+noremap <buffer> ,a mmA:<esc>`m

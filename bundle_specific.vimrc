@@ -13,15 +13,23 @@ Bundle 'tpope/vim-pathogen'
 " disable auto completion popup for python, b/c it was sucking
 let g:acp_behaviorPythonOmniLength = -1
 Bundle 'vim-scripts/AutoComplPop'
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['java','cpp'] }
+
 Bundle 'scrooloose/syntastic'
-"let g:syntastic_mode_map['active_filetypes'] = ['java']
+
 Bundle 'vim-scripts/Markdown'
 Bundle 'kchmck/vim-coffee-script'
 " some kind of bug with vundle, maybe?
-autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
+augroup coffee_ft
+    autocmd!
+    autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
+augroup END
 
 " Tab completion
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 " git
 Bundle 'tpope/vim-fugitive'
 "Bundle 'vim-scripts/VimOrganizer'
@@ -30,8 +38,19 @@ Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
+
 Bundle 'vim-scripts/ack.vim'
+" ag is faster
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" NOTE This feature requires that 'backspace' is either set to 2 or
+" has "eol" and "start" as part of its value.
+"let delimitMate_expand_cr = 1
+let b:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 1
 Bundle "Raimondi/delimitMate"
+let b:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 1
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -39,11 +58,12 @@ Bundle 'kien/rainbow_parentheses.vim'
 
 " forever rainbow
 augroup Rainbow_set
+    autocmd!
     autocmd VimEnter * RainbowParenthesesToggle
-    autocmd Syntax * RainbowParenthesesLoadBraces
-    autocmd Syntax * RainbowParenthesesLoadRound
-    autocmd Syntax * RainbowParenthesesLoadSquare
-    autocmd Syntax * RainbowParenthesesLoadChevrons
+    autocmd VimEnter * RainbowParenthesesLoadBraces
+    autocmd VimEnter * RainbowParenthesesLoadRound
+    autocmd VimEnter * RainbowParenthesesLoadSquare
+    "autocmd VimEnter * RainbowParenthesesLoadChevrons
 augroup END
 
 Bundle 'Lokaltog/vim-easymotion'
@@ -79,7 +99,6 @@ syntax enable
 
 " toggle background color
 call togglebg#map("<F5>")
-" set background=light
 set background=dark
 " use custom colors
 set t_Co=16
