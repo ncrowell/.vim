@@ -8,4 +8,4 @@ setlocal textwidth=80 colorcolumn=80
 set makeprg=javac\ %
 setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 " add line ending
-noremap <buffer> ,a mmA;<esc>`m
+noremap <buffer> ,a mmA;<esc>`mw<cr>
