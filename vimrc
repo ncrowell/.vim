@@ -132,6 +132,8 @@ set expandtab smarttab
 set copyindent preserveindent
 set textwidth=79 ruler
 
+nnoremap <C-I><C-D> oimport sys, IPython<CR>IPython.Shell.IPShell(argv=[])<CR>IPython.Debugger.Pdb(IPython.ipapi.get().options.colors).set_trace(sys._getframe())<ESC>:w<CR>
+
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
 " vim wiki: insert mode times out to normal mode after 8 seconds
