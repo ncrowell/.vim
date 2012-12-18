@@ -76,6 +76,7 @@ else
 endif
 
 
+Bundle 'vim-scripts/std_c.zip'
 """"""""" COLOR """""""""""""""""
 Bundle 'vim-scripts/badwolf'
 Bundle 'tomasr/molokai'

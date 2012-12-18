@@ -82,3 +82,6 @@
 	path = bundle/rainbow_parentheses.vim
 	url = git://github.com/kien/rainbow_parentheses.vim.git
     ignore = untracked
+[submodule "bundle/std_c"]
+	path = bundle/std_c
+	url = git://github.com/vim-scripts/std_c.zip.git
