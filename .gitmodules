@@ -85,3 +85,6 @@
 [submodule "bundle/shady.vim"]
 	path = bundle/shady.vim
 	url = git://github.com/cloudhead/shady.vim.git
+[submodule "bundle/badwolf"]
+	path = bundle/badwolf
+	url = git://github.com/sjl/badwolf.git

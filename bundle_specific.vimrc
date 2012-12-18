@@ -79,7 +79,7 @@ endif
 Bundle 'vim-scripts/std_c.zip'
 """"""""" COLOR """""""""""""""""
 Bundle 'cloudhead/shady.vim'
-Bundle 'vim-scripts/badwolf'
+Bundle 'sjl/badwolf'
 Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 
