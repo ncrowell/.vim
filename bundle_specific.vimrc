@@ -10,13 +10,9 @@ Bundle 'gmarik/vundle'
 " why need this? (vundle needs it)
 Bundle 'tpope/vim-pathogen'
 
-" disable auto completion popup for python, b/c it was sucking
-let g:acp_behaviorPythonOmniLength = -1
-Bundle 'vim-scripts/AutoComplPop'
-
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['java','cpp'] }
+                           \ 'passive_filetypes': ['java','cpp','python'] }
 
 Bundle 'scrooloose/syntastic'
 
@@ -82,10 +78,12 @@ endif
 
 """"""""" COLOR """""""""""""""""
 Bundle 'vim-scripts/badwolf'
+Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 
 "colorscheme desert
 "colorscheme badwolf
+"colorscheme molokai
 "
 "solarized options
 " change the default EasyMotion shading to something more readable with
@@ -100,7 +98,7 @@ syntax enable
 " toggle background color
 call togglebg#map("<F5>")
 set background=dark
-" use custom colors
+
 set t_Co=16
 colorscheme solarized
 
