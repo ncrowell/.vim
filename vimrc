@@ -12,6 +12,7 @@ set backupcopy=yes
 
 set pastetoggle=<F6>
 set lazyredraw
+syntax sync minlines=50
 
 set wildmenu
 " Better completion - where is this from? is it true?
@@ -32,14 +33,18 @@ endif
 " fold inside of braces
 nnoremap @k zfa{
 
-" duh
-nnoremap ; :
+" so the tilde works like yes!
+set tildeop
+
+" duh; MAYBE NOT
+"nnoremap ; :
+nnoremap <space> :
 
 " repeat and go back - yess. uses register m.
 nnoremap . mm.`m
-nnoremap ,. .
+"nnoremap ,. .
 
-set scrolloff=80
+set scrolloff=8
 
 " so much stolen from sjl
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -96,11 +101,6 @@ vnoremap O <esc>O<esc>v
 nnoremap P mm[p==`m
 nnoremap p mm]p==`m
 
-nnoremap q [
-nnoremap z ]
-nnoremap <leader>m q
-nnoremap <leader>z z
-
 " vimtips: highlight something in visual, hit c-x, highlight something
 " else, hit c-x, they should be swapped
 vnoremap <C-X> <Esc>`.``gvP``P
@@ -132,7 +132,6 @@ set expandtab smarttab
 set copyindent preserveindent
 set textwidth=79 ruler
 
-nnoremap <C-I><C-D> oimport sys, IPython<CR>IPython.Shell.IPShell(argv=[])<CR>IPython.Debugger.Pdb(IPython.ipapi.get().options.colors).set_trace(sys._getframe())<ESC>:w<CR>
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
 
@@ -179,5 +178,5 @@ endif
 set showmatch hlsearch incsearch
 set ignorecase smartcase
 
-" possible vulnerability?
+" security?
 set nomodeline
