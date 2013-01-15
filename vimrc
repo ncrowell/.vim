@@ -71,7 +71,6 @@ let lastname = "crowell"
 if ( stridx(tolower($USER), lastname) != -1 )
     " Be kind to your hands
     inoremap jk <esc>:w<CR>
-    inoremap Jk <esc>
 
     " I think these are my favorites
     inoremap j; <esc>:
@@ -113,7 +112,7 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
-nnoremap <leader><space> :nohlsearch<CR><C-L>
+nnoremap <leader><space> :nohlsearch<CR><C-L>:sign unplace *<CR>
 
 """""""""""""""""""""""""""""""""""
 
