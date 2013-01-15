@@ -77,7 +77,6 @@ endif
 
 
 Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'vim-scripts/std_c.zip'
 """"""""" COLOR """""""""""""""""
 Bundle 'cloudhead/shady.vim'
 Bundle 'sjl/badwolf'
