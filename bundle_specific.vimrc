@@ -53,7 +53,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 "source /Users/nicolascrowell/.vim/mypairs.vim
 
 " forever rainbow
-augroup Rainbow_set
+augroup Rainbow_On
     autocmd!
     autocmd VimEnter * RainbowParenthesesToggle
     autocmd VimEnter * RainbowParenthesesLoadBraces
@@ -94,7 +94,7 @@ Bundle 'altercation/vim-colors-solarized'
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
-" FIXME : why is this enable?
+" TOLEARN
 syntax enable
 
 " toggle background color
