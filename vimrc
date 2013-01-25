@@ -12,6 +12,7 @@ set backupcopy=yes
 
 set pastetoggle=<F6>
 set lazyredraw
+" syntax highlighting seems to break on long comments and docstrings otherwise
 syntax sync minlines=50
 
 set wildmenu
@@ -70,12 +71,15 @@ vnoremap / /\v
 let lastname = "crowell"
 if ( stridx(tolower($USER), lastname) != -1 )
     " Be kind to your hands
-    inoremap jk <esc>:w<CR>
+    " UPDATE maybe keyboard remappings obsoletize these they could be
+    " completely unnecessary like eveything that is already useless this will
+    " be revolutionary be useuless
+    "inoremap jk <esc>:w<CR>
 
     " I think these are my favorites
-    inoremap j; <esc>:
-    inoremap j/ <esc>/\v
-    inoremap ;w <esc>:w
+    "inoremap j; <esc>:
+    "inoremap j/ <esc>/\v
+    "inoremap ;w <esc>:w
 endif
 
 """"""""""" MOVEMENT """"""""""""""
