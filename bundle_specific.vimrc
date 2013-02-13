@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 " why need this? (vundle needs it)
 Bundle 'tpope/vim-pathogen'
 
+let g:syntastic_python_checker_args = "--ignore=E111"
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['java','cpp','python'] }
