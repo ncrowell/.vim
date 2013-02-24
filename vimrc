@@ -51,6 +51,8 @@ set scrolloff=8
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>tv :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>eb :tabe $HOME/.vim/bundle_specific.vimrc<cr>
+nnoremap <leader>sb :source $HOME/.vim/bundle_specific.vimrc<cr>
 
 " hack: are we on a mac?
 if (stridx($HOME, "/Users/") == 0)
@@ -180,6 +182,8 @@ endif
 " highlight search results
 set showmatch hlsearch incsearch
 set ignorecase smartcase
+
+set cursorline
 
 " security?
 set nomodeline
