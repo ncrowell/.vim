@@ -114,7 +114,7 @@ Bundle 'sjl/gundo.vim'
 " align statements in parentheses?
 "Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
-"Bundle 'git://github.com/vim-scripts/Align.git'
+Bundle 'git://github.com/vim-scripts/Align.git'
 "
 " Vundle wants this
 filetype plugin indent on
