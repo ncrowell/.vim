@@ -36,6 +36,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
 
+"Bundle 'trotter/autojump.vim'
 Bundle 'vim-scripts/ack.vim'
 " ag is faster
 let g:ackprg = 'ag --nogroup --nocolor --column'

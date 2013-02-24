@@ -94,3 +94,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = //github.com/tomasr/molokai.git
+[submodule "bundle/autojump.vim"]
+	path = bundle/autojump.vim
+	url = git://github.com/trotter/autojump.vim.git
