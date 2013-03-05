@@ -36,6 +36,8 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
 
+
+Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'trotter/autojump.vim'
 Bundle 'vim-scripts/ack.vim'
 " ag is faster
