@@ -50,6 +50,9 @@ Bundle "Raimondi/delimitMate"
 let b:delimitMate_expand_cr = 1
 let g:delimitMate_expand_cr = 1
 
+
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 "source /Users/nicolascrowell/.vim/mypairs.vim
