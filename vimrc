@@ -48,10 +48,10 @@ nnoremap . mm.`m
 set scrolloff=8
 
 " so much stolen from sjl
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>tv :tabe $MYVIMRC<cr>
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>tv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>eb :tabe $HOME/.vim/bundle_specific.vimrc<cr>
+nnoremap <leader>eb :tabedit $HOME/.vim/bundle_specific.vimrc<cr>
 nnoremap <leader>sb :source $HOME/.vim/bundle_specific.vimrc<cr>
 
 " hack: are we on a mac?
@@ -66,6 +66,9 @@ nnoremap / /\v
 vnoremap / /\v
 
 """""""""" MODES """"""""""""""""
+inoremap jk <esc>:w<CR>
+inoremap jj <esc>:w<CR>
+inoremap jf <esc>:w<CR>
 
 " these might be confusing mappings to a new USER just change lastname
 " to something that is a substring of the environment variable USER, or
@@ -76,7 +79,6 @@ if ( stridx(tolower($USER), lastname) != -1 )
     " UPDATE maybe keyboard remappings obsoletize these they could be
     " completely unnecessary like eveything that is already useless this will
     " be revolutionary be useuless
-    "inoremap jk <esc>:w<CR>
 
     " I think these are my favorites
     "inoremap j; <esc>:
