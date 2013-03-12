@@ -5,7 +5,8 @@ noremap <buffer> ,a mmA.<esc>`m:w<cr>
 nnoremap gqj gq}
 
 " automatically wrap text when inserting in the middle of the line
-set formatoptions+=a
+nnoremap <leader>gq :set formatoptions+=a<cr>
+nnoremap <leader>gg :set formatoptions=tcq<cr>
 
 " google latex makefile
 set makeprg=make\ -j\ 2\ -f\ $HOME/bin/latex-makefile
