@@ -20,7 +20,10 @@ set wildmenu
 set completeopt=longest,menuone
 
 set showcmd
+
+set backupdir="~/tmp,."
 if has("persistent_undo") || exists("+undofile")
+    set undodir="~/tmp,."
     set undofile
 endif
 set laststatus=2
@@ -120,7 +123,7 @@ nnoremap <silent> <c-l> :wincmd l<cr>
 
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
-nnoremap <leader><space> :nohlsearch<CR><C-L>:sign unplace *<CR>
+nnoremap <leader>v :nohlsearch<CR><C-L>:sign unplace *<CR>
 
 """""""""""""""""""""""""""""""""""
 
