@@ -4,8 +4,6 @@ let mapleader = ','
 set confirm
 set mouse=i
 set notimeout ttimeout ttimeoutlen=200
-" stop cursor from blinking in guivim
-set guicursor+=a:blinkon0
 
 " crontab -e
 set backupcopy=yes
@@ -21,9 +19,9 @@ set completeopt=longest,menuone
 
 set showcmd
 
-set backupdir="~/tmp,."
+set backupdir=~/tmp,.
 if has("persistent_undo") || exists("+undofile")
-    set undodir="~/tmp,."
+    set undodir=~/tmp,.
     set undofile
 endif
 set laststatus=2
@@ -94,6 +92,7 @@ endif
 " better
 noremap H g^
 noremap L g_
+noremap Y y$
 
 " lchdir to containing folder of this buffer
 noremap <leader>ts :lcd %:p:h<esc>
@@ -137,10 +136,10 @@ noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> tr
 set backspace=indent,eol,start
 
 """""""" SPACE """"""""""""""""""""
-set shiftwidth=4 tabstop=4 softtabstop=4
+set shiftwidth=4 tabstop=4 softtabstop=4 shiftround
 set expandtab smarttab
-set copyindent preserveindent
-set textwidth=79 ruler
+set copyindent preserveindent autoindent
+set textwidth=80 ruler
 
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
