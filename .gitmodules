@@ -103,3 +103,6 @@
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/vim-vividchalk"]
+	path = bundle/vim-vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git

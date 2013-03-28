@@ -37,11 +37,21 @@ Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/The-NERD-Commenter'
 
 
+"augroup my_indent_guides
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+"augroup END
+let g:indent_guides_auto_colors = 0
 Bundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_auto_colors = 0
+
+
+
+
 "Bundle 'trotter/autojump.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle 'vim-scripts/ack.vim'
 " ag is faster
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NOTE This feature requires that 'backspace' is either set to 2 or
 " has "eol" and "start" as part of its value.
@@ -88,25 +98,29 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cloudhead/shady.vim'
 Bundle 'sjl/badwolf'
 Bundle 'tomasr/molokai'
+Bundle 'tpope/vim-vividchalk'
 Bundle 'altercation/vim-colors-solarized'
 
 "colorscheme desert
 "colorscheme badwolf
 "colorscheme molokai
-"
+
 "solarized options
-" change the default EasyMotion shading to something more readable with
+" change the default EasyMotion shading to be readable with
 " Solarized: courtesy of
 " http://stackoverflow.com/questions/6126871/easymotion-coloring-in-vim-with-solarized-theme
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
+
+nnoremap <leader><space> <nop>
+let g:EasyMotion_leader_key = '<Leader><space>'
 
 " TOLEARN
 syntax enable
 
 " toggle background color
 call togglebg#map("<F5>")
-set background=dark
+set background=light
 
 set t_Co=16
 colorscheme solarized
