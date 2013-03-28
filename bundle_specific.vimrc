@@ -130,10 +130,10 @@ colorscheme solarized
 " maybe I'll use this someday
 Bundle 'sjl/gundo.vim'
 
-" align statements in parentheses?
-"Bundle 'git://github.com/vim-scripts/Align.vim.git'
 " aligning statements on a specific character, ie. equals sign
-Bundle 'git://github.com/vim-scripts/Align.git'
+Bundle 'vim-scripts/Align.git'
+
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 "
 " Vundle wants this
 filetype plugin indent on
