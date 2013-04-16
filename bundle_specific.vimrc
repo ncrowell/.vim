@@ -133,7 +133,12 @@ Bundle 'sjl/gundo.vim'
 " aligning statements on a specific character, ie. equals sign
 Bundle 'vim-scripts/Align.git'
 
+let g:tex_flavor='latex'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-"
+let g:tex_flavor='latex'
+
+Bundle 'dhruvasagar/vim-markify'
+Bundle 'majutsushi/tagbar'
+
 " Vundle wants this
 filetype plugin indent on
