@@ -115,3 +115,9 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/mips.vim"]
+	path = bundle/mips.vim
+	url = git://github.com/vim-scripts/mips.vim
+[submodule "bundle/soda.vim"]
+	path = bundle/soda.vim
+	url = git://github.com/DAddYE/soda.vim

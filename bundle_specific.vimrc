@@ -81,7 +81,7 @@ augroup END
 
 Bundle 'Lokaltog/vim-easymotion'
 " vim status bar; environment variable detects custom font
-if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
+if $HAVE_VIM_POWERLINE_FONT == "TRUE"
     " powerline configuration
     set laststatus=2
     let g:Powerline_symbols = 'fancy'
@@ -139,6 +139,8 @@ let g:tex_flavor='latex'
 
 Bundle 'dhruvasagar/vim-markify'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/mips.vim'
+Bundle 'DAddYE/soda.vim'
 
 " Vundle wants this
 filetype plugin indent on
