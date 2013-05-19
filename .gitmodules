@@ -121,3 +121,18 @@
 [submodule "bundle/soda.vim"]
 	path = bundle/soda.vim
 	url = git://github.com/DAddYE/soda.vim
+[submodule "bundle/base16-vim"]
+	path = bundle/base16-vim
+	url = git://github.com/chriskempson/base16-vim.git
+[submodule "bundle/vim-monokai"]
+	path = bundle/vim-monokai
+	url = git://github.com/sickill/vim-monokai.git
+[submodule "bundle/vitality.vim"]
+	path = bundle/vitality.vim
+	url = git://github.com/sjl/vitality.vim.git
+[submodule "bundle/vim-startify"]
+	path = bundle/vim-startify
+	url = git://github.com/mhinz/vim-startify.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git

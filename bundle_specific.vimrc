@@ -13,17 +13,12 @@ Bundle 'tpope/vim-pathogen'
 let g:syntastic_python_checker_args = "--ignore=E111"
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['java','cpp','python'] }
+                           \ 'passive_filetypes': ['java','cpp','python', 'tex'] }
 
 Bundle 'scrooloose/syntastic'
 
 Bundle 'vim-scripts/Markdown'
 Bundle 'kchmck/vim-coffee-script'
-" some kind of bug with vundle, maybe?
-augroup coffee_ft
-    autocmd!
-    autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
-augroup END
 
 " Tab completion
 "Bundle 'ervandew/supertab'
@@ -45,12 +40,10 @@ let g:indent_guides_auto_colors = 0
 Bundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_auto_colors = 0
 
-
-
-
 "Bundle 'trotter/autojump.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
-Bundle 'vim-scripts/ack.vim'
+Bundle 'ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " ag is faster
 
 " NOTE This feature requires that 'backspace' is either set to 2 or
@@ -79,11 +72,12 @@ augroup Rainbow_On
     "autocmd VimEnter * RainbowParenthesesLoadChevrons
 augroup END
 
+set laststatus=0
 Bundle 'Lokaltog/vim-easymotion'
 " vim status bar; environment variable detects custom font
-if $HAVE_VIM_POWERLINE_FONT == "TRUE"
+if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
     " powerline configuration
-    set laststatus=2
+    "set laststatus=2
     let g:Powerline_symbols = 'fancy'
     Bundle 'Lokaltog/vim-powerline'
 else
@@ -120,12 +114,10 @@ syntax enable
 
 " toggle background color
 call togglebg#map("<F5>")
+
 set background=light
-
-set t_Co=16
-colorscheme solarized
-
-"""""""""""""""""""""""""""""""""
+"colorscheme molokai | set t_Co=256
+set t_Co=16 | colorscheme solarized
 
 " maybe I'll use this someday
 Bundle 'sjl/gundo.vim'
@@ -139,8 +131,18 @@ let g:tex_flavor='latex'
 
 Bundle 'dhruvasagar/vim-markify'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/mips.vim'
+Bundle 'mips.vim'
 Bundle 'DAddYE/soda.vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'sickill/vim-monokai'
+
+Bundle 'bundle/custom_colors'
+"Bundle 'sjl/vitality.vim'
+Bundle 'mhinz/vim-startify'
+
+Bundle 'Valloric/YouCompleteMe'
+
+"colorscheme soda
 
 " Vundle wants this
 filetype plugin indent on
