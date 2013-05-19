@@ -2,7 +2,7 @@ source $HOME/.vim/bundle_specific.vimrc
 
 let mapleader = ','
 set confirm
-set mouse=i
+set mouse=a
 set notimeout ttimeout ttimeoutlen=200
 
 " crontab -e
@@ -11,7 +11,7 @@ set backupcopy=yes
 set pastetoggle=<F6>
 set lazyredraw
 " syntax highlighting seems to break on long comments and docstrings otherwise
-syntax sync minlines=50
+syntax sync minlines=200
 
 set wildmenu
 " Better completion - where is this from? is it true?
@@ -24,12 +24,11 @@ if has("persistent_undo") || exists("+undofile")
     set undodir=~/tmp,.
     set undofile
 endif
-set laststatus=2
 
 if exists("+relativenumber")
     set relativenumber
-else
-    set number
+"else
+    "set number
 endif
 
 " fold inside of braces
@@ -104,9 +103,11 @@ noremap gj j
 noremap gk k
 
 "nnoremap <leader>o o<esc>:w<cr>
+" stay in visual after inserting new line
 vnoremap o <esc>o<esc>v
 vnoremap O <esc>O<esc>v
 
+" jump back after pasting
 nnoremap P mm[p==`m
 nnoremap p mm]p==`m
 
@@ -143,14 +144,6 @@ set textwidth=80 ruler
 
 
 """"""" AUTO COMMANDS """""""""""""""""""""""""""""""""""""""""""""
-
-" vim wiki: insert mode times out to normal mode after 8 seconds
-"augroup itimeout
-    "autocmd!
-    "autocmd CursorHoldI * stopinsert
-    "autocmd InsertEnter * let updaterestore = &updatetime | set updatetime=12000
-    "autocmd InsertLeave * let updatetime = updaterestore
-"augroup END
 
 augroup savefolds
     autocmd!
@@ -191,3 +184,5 @@ set cursorline
 
 " security?
 set nomodeline
+
+set verbosefile=$HOME/vimessages
