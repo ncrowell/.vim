@@ -141,6 +141,7 @@ Bundle 'bundle/custom_colors'
 Bundle 'mhinz/vim-startify'
 
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'noahfrederick/Hemisu'
 
 "colorscheme soda
 

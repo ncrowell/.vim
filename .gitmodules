@@ -136,3 +136,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = git://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/Hemisu"]
+	path = bundle/Hemisu
+	url = git://github.com/noahfrederick/Hemisu.git
