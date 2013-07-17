@@ -1,14 +1,13 @@
-Installation:
+Grab:
 
     git clone git@github.com:ncrowell/.vim.git
 
-Create symlinks:
+Symlinks:
 
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
 
-Switch to the `~/.vim` directory, and fetch submodules:
+Submodules:
 
     cd ~/.vim
-    git submodule init
-    git submodule update
+    git submodule update --init
