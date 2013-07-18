@@ -1,5 +1,6 @@
 set backupdir=~/tmp,.
 set verbosefile=$HOME/vimessages
+nnoremap <esc> <nop>
 
 source $HOME/.vim/bundle_specific.vimrc
 
@@ -104,7 +105,7 @@ nnoremap <leader>v :nohlsearch<CR><C-L>:sign unplace *<CR>
 
 " vim wiki: display the syntax highlighting groups
 " underneath the cursor
-function GetCurrentSyntaxGroup()
+function! GetCurrentSyntaxGroup()
     let l:transName = synID(line('.'), col('.'), 0)
     let l:hiName    = synID(line("."), col("."), 1)
     let l:loName    = synIDtrans(l:hiName)
