@@ -72,7 +72,6 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'cloudhead/shady.vim'
 Bundle 'sjl/badwolf'
 Bundle 'sjl/gundo.vim'
-Bundle 'tomasr/molokai'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'altercation/vim-colors-solarized'
 call togglebg#map("<F5>")

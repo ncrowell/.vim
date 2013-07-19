@@ -91,9 +91,6 @@
 [submodule "bundle/Vim-Jinja2-Syntax"]
 	path = bundle/Vim-Jinja2-Syntax
 	url = git://github.com/Glench/Vim-Jinja2-Syntax.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = git://github.com/tomasr/molokai.git
 [submodule "bundle/autojump.vim"]
 	path = bundle/autojump.vim
 	url = git://github.com/trotter/autojump.vim.git
