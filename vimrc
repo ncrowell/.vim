@@ -1,6 +1,5 @@
 set backupdir=~/tmp,.
 set verbosefile=$HOME/vimessages
-nnoremap <esc> <nop>
 
 source $HOME/.vim/bundle_specific.vimrc
 
