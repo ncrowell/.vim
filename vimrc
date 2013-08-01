@@ -1,5 +1,5 @@
 set backupdir=~/tmp,.
-set verbosefile=$HOME/vimessages
+set verbosefile=$HOME/.vim/messages
 
 source $HOME/.vim/bundle_specific.vimrc
 
@@ -47,6 +47,9 @@ else
     nnoremap <c-c> :echo 'How do you copy and paste?'<CR>
 endif
 
+nnoremap K :q<cr>
+nnoremap M K
+
 " Better regexes?
 nnoremap / /\v
 vnoremap / /\v
@@ -72,10 +75,13 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+" windows
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
+nnoremap <c-m> <c-w>_<c-w>\|
+
 " fold inside of braces
 nnoremap @k zfa{
 nnoremap <space> :
