@@ -1,3 +1,4 @@
+set nocompatible
 set backupdir=~/tmp,.
 set verbosefile=$HOME/.vim/messages
 
@@ -31,7 +32,7 @@ set showmatch hlsearch incsearch
 set ignorecase smartcase
 
 if has("persistent_undo") || exists("+undofile")
-    set undodir=~/tmp,.
+    set undodir=~/tmp
     set undofile
 endif
 if exists("+relativenumber")
