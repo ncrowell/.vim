@@ -16,15 +16,15 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['java','cpp','python', 'tex'] }
 Bundle 'scrooloose/syntastic'
 
-Bundle 'vim-scripts/Markdown'
+Bundle 'Markdown'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/surround.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/The-NERD-tree'
-Bundle 'vim-scripts/The-NERD-Commenter'
-Bundle 'vim-scripts/Align.git'
+Bundle 'ctags.vim'
+Bundle 'surround.vim'
+Bundle 'a.vim'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+Bundle 'Align.git'
 
 let g:indent_guides_auto_colors = 0
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -60,7 +60,7 @@ hi link EasyMotionShade  Comment
 nnoremap <leader><space> <nop>
 let g:EasyMotion_leader_key = '<Leader><space>'
 
-set laststatus=0
+set laststatus=2
 if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
     "set laststatus=2
     let g:Powerline_symbols = 'fancy'
@@ -74,6 +74,12 @@ Bundle 'sjl/badwolf'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'DAddYE/soda.vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'sickill/vim-monokai'
+Bundle 'Sorcerer'
+Bundle 'Mustang2'
+
 call togglebg#map("<F5>")
 
 "colorscheme desert
@@ -94,17 +100,16 @@ let g:tex_flavor='latex'
 Bundle 'dhruvasagar/vim-markify'
 Bundle 'majutsushi/tagbar'
 Bundle 'mips.vim'
-Bundle 'DAddYE/soda.vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'sickill/vim-monokai'
-Bundle 'bundle/custom_colors'
 Bundle 'mhinz/vim-startify'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'noahfrederick/Hemisu'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
+Bundle 'vim-pandoc/vim-pandoc'
+
+Bundle 'tpope/vim-sleuth'
 
 " Vundle wants this
 filetype plugin indent on
