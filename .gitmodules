@@ -21,9 +21,6 @@
 [submodule "bundle/Markdown"]
 	path = bundle/Markdown
 	url = git://github.com/vim-scripts/Markdown
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = git://github.com/ervandew/supertab
 [submodule "bundle/ctags.vim"]
 	path = bundle/ctags.vim
 	url = git://github.com/vim-scripts/ctags.vim
