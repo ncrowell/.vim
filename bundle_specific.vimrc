@@ -110,6 +110,9 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'vim-pandoc/vim-pandoc'
 
 Bundle 'tpope/vim-sleuth'
+Bundle 'krisajenkins/vim-pipe'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 
 " Vundle wants this
 filetype plugin indent on
