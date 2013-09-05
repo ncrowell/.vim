@@ -102,10 +102,11 @@
 	url = git://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
-	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+	#url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+	url = git://git.code.sf.net/p/vim-latex/vim-latex
 [submodule "bundle/markify"]
 	path = bundle/markify
-	url = git@github.com:dhruvasagar/vim-markify.git
+	url = https://github.com/dhruvasagar/vim-markify.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
