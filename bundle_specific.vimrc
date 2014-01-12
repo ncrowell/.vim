@@ -10,14 +10,20 @@ Bundle 'gmarik/vundle'
 " why need this? (vundle needs it)
 Bundle 'tpope/vim-pathogen'
 
-let g:syntastic_python_checker_args = "--ignore=E111"
+let g:syntastic_c_compiler_options = ' -ansi -Wall'
+"let g:syntastic_python_checker_args = "--ignore=E111"
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['java','cpp','python', 'tex'] }
 Bundle 'scrooloose/syntastic'
 
+"Languages
 Bundle 'Markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'guns/vim-clojure-static'
+Bundle 'mitsuhiko/vim-python-combined'
+Bundle 'jnwhiteh/vim-golang'
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'ctags.vim'
 Bundle 'surround.vim'
@@ -38,9 +44,10 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 Bundle "Raimondi/delimitMate"
 let g:delimitMate_expand_cr = 1
 
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-Bundle 'kien/ctrlp.vim'
+"let g:ctrlp_max_files = 300
+"let g:ctrlp_clear_cache_on_exit = 1
+"let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+"Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 "source /Users/nicolascrowell/.vim/mypairs.vim
 augroup Rainbow_On
@@ -52,19 +59,19 @@ augroup Rainbow_On
     "autocmd VimEnter * RainbowParenthesesLoadChevrons
 augroup END
 
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 " change EasyMotion shading to be readable with Solarized:
 " http://stackoverflow.com/questions/6126871/easymotion-coloring-in-vim-with-solarized-theme
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-nnoremap <leader><space> <nop>
-let g:EasyMotion_leader_key = '<Leader><space>'
+"hi link EasyMotionTarget ErrorMsg
+"hi link EasyMotionShade  Comment
+"nnoremap <leader><space> <nop>
+"let g:EasyMotion_leader_key = '<Leader><space>'
 
 set laststatus=2
 if $HAVE_VIM_POWERLINE_FONT == "TRUE" || has("gui_running")
     "set laststatus=2
     let g:Powerline_symbols = 'fancy'
-    Bundle 'Lokaltog/vim-powerline'
+    "Bundle 'Lokaltog/vim-powerline'
 endif
 
 Bundle 'Glench/Vim-Jinja2-Syntax'
@@ -91,8 +98,8 @@ call togglebg#map("<F5>")
 syntax enable
 "colorscheme Monokai | set t_Co=256
 set t_Co=16 | colorscheme solarized
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 let g:tex_flavor='latex'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -100,19 +107,49 @@ let g:tex_flavor='latex'
 Bundle 'dhruvasagar/vim-markify'
 Bundle 'majutsushi/tagbar'
 Bundle 'mips.vim'
+let g:startify_files_number = 20
 Bundle 'mhinz/vim-startify'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'noahfrederick/Hemisu'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
-"Bundle 'bling/vim-airline'
-Bundle 'vim-pandoc/vim-pandoc'
 
+Bundle 'bling/vim-airline'
+let g:airline_enable_syntastic=1
+"let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+
+Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'tpope/vim-sleuth'
 Bundle 'krisajenkins/vim-pipe'
-Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-repeat'
+Bundle 'tfnico/vim-gradle'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite-outline.vim'
+Bundle 'tpope/vim-dispatch.git'
+
+source $HOME/.vim/unite-ctrlp.vim
 
 " Vundle wants this
 filetype plugin indent on
