@@ -1,25 +1,34 @@
 set nocompatible
-set backupdir=~/tmp,.
+set backupdir=~/tmp/vim,.
+set directory=~/tmp/vim,.
 set verbosefile=$HOME/.vim/messages
+
+" TODO make up your mind...
+let &directory = join(["./.backup", &directory], ",")
+
+if has("gui_macvim")
+    set fullscreen
+endif
 
 source $HOME/.vim/bundle_specific.vimrc
 
+
 let mapleader = ','
 set confirm
-set mouse=a
+set mouse=i
 set notimeout ttimeout ttimeoutlen=200
 " crontab -e
 set backupcopy=yes
 set pastetoggle=<F6>
-set lazyredraw
+"set lazyredraw
 set scrolloff=8
-syntax sync minlines=200
+syntax sync minlines=300
 set wildmenu
 set completeopt=longest,menuone
 " so the tilde works like yes!
 set tildeop
-set cursorline
-set showcmd
+"set cursorline
+"set showcmd
 set backspace=indent,eol,start
 "set nomodeline " security?
 " Space
@@ -36,14 +45,17 @@ if has("persistent_undo") || exists("+undofile")
     set undofile
 endif
 if exists("+relativenumber")
-    set relativenumber
+    "set relativenumber
+    set number
 else
     set number
 endif
 
 " hack: are we on a mac?
 if (stridx($HOME, "/Users/") == 0)
-    nnoremap <c-c> :!pbcopy < %<cr>
+    nnoremap <c-c> :!pbcopy <cr>
+    " i'm proud of this
+    vnoremap <c-c> :!tee >(pbcopy) <cr>
 else
     nnoremap <c-c> :echo 'How do you copy and paste?'<CR>
 endif
@@ -55,7 +67,7 @@ nnoremap M K
 nnoremap / /\v
 vnoremap / /\v
 inoremap jk <esc>:w<CR>
-inoremap jj <esc>:w<CR>
+"inoremap jj <esc>:w<CR>
 inoremap jf <esc>:w<CR>
 " these might be confusing mappings to a new USER just change lastname
 " to something that is a substring of the environment variable USER, or
@@ -82,12 +94,15 @@ nnoremap <silent> <c-k> :wincmd k<cr>
 nnoremap <silent> <c-h> :wincmd h<cr>
 nnoremap <silent> <c-l> :wincmd l<cr>
 nnoremap <c-m> <c-w>_<c-w>\|
+nnoremap <silent> <c-=> :wincmd =<cr>
 
 " fold inside of braces
 nnoremap @k zfa{
 nnoremap <space> :
+" go back after repeating
 nnoremap . mm.`m
 " sjl
+
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>tv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -100,14 +115,16 @@ noremap <leader>ts :lcd %:p:h<esc>
 vnoremap o <esc>o<esc>v
 vnoremap O <esc>O<esc>v
 " jump back after pasting
-nnoremap P mm[p==`m
 nnoremap p mm]p==`m
+nnoremap P mm[P==`m
 " vimtips: highlight something in visual, hit c-x, highlight something
 " else, hit c-x, text swapped.
 vnoremap <C-X> <Esc>`.``gvP``P
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
 nnoremap <leader>v :nohlsearch<CR><C-L>:sign unplace *<CR>
+
+"let g:matchparen_insert_timeout=5
 
 " vim wiki: display the syntax highlighting groups
 " underneath the cursor
@@ -124,6 +141,7 @@ function! GetCurrentSyntaxGroup()
 endfunction
 
 nnoremap <F7> :echo GetCurrentSyntaxGroup()<CR>
+
 
 augroup AUTOCOMMANDS
     autocmd!
@@ -145,3 +163,4 @@ if  exists("+colorcolumn")
         autocmd BufNewFile,BufReadPost,Syntax let &colorcolumn = &textwidth 
     augroup END
 endif
+

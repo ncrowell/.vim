@@ -1,6 +1,5 @@
 set guifont=Inconsolata:h22
 
-set fuopt=maxvert,maxhorz
 set guioptions-=r 
 set guioptions-=L 
 
@@ -11,3 +10,4 @@ set guicursor+=a:blinkon0
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
 Bundle 'Lokaltog/vim-powerline'
+
