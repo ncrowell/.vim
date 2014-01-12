@@ -1,13 +1,9 @@
-FILES=${HOME}/.vimrc ${HOME}/.gvimrc
+all: bundle .check_vim_version
 
-all: ${FILES} bundle
-
-${HOME}/.vimrc:
-	ln -s ${PWD}/vimrc ${HOME}/.vimrc
-
-${HOME}/.gvimrc:
-	ln -s ${PWD}/gvimrc ${HOME}/.gvimrc
-
-bundle: .gitmodules
+bundle: .gitmodules bundle/*
 	git submodule sync
 	git submodule update --init
+	touch bundle
+
+.check_vim_version:
+	python handle_old_vim.py
