@@ -12,8 +12,20 @@ nnoremap gqj gq}
 nnoremap <leader>gq :set formatoptions+=a<cr>
 nnoremap <leader>gg :set formatoptions=tcq<cr>
 
-" google latex makefile
-set makeprg=make\ -j\ 2\ -f\ $HOME/bin/latex-makefile
+"google latex makefile
+"set makeprg=make\ -j\ 2\ -f\ $HOME/bin/latex-makefile
+
+function! MakeWithTarget(name, base)
+    return a:base . " " . a:name 
+endfunction
+
+function! GSub(s, replace, with)
+    return substitute(a:s, a:replace, a:with, "g")
+endfunction
+
+let makeorig = &makeprg
+"let &makeprg = MakeWithTarget(GSub(expand("%"), ".tex", ".pdf"), makeorig)
+let makeprg = "/usr/texbin/latexmk -pdf"
 
 "!launchctl submit -l watch_latex_ . f -- $HOME/bin/pset_mod_make.rb %:p:h
 
