@@ -28,11 +28,3 @@ let makeorig = &makeprg
 let makeprg = "/usr/texbin/latexmk -pdf"
 
 "!launchctl submit -l watch_latex_ . f -- $HOME/bin/pset_mod_make.rb %:p:h
-
-" background call latex makefile
-"augroup tex_bg_make
-    "autocmd BufWritePost *.tex
-                "\ silent execute ":!make -j2 -f $HOME/bin/latex-makefile > ~/.vim/.texerrors 2>&1 &" |
-                "\ redraw! |
-                "\ cgetfile ~/.vim/.texerrors
-"augroup END
