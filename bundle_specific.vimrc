@@ -146,12 +146,22 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tfnico/vim-gradle'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/neocomplete.vim'
+"let g:neocomplete#enable_at_startup = 1
 Bundle 'Shougo/unite-outline'
-"Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-classpath'
 Bundle 'hsanson/vim-android'
 Bundle 'jnurmine/Zenburn'
 "colorscheme zenburn
+
+let g:haddock_browser = "/usr/bin/open"
+"Bundle 'bitc/vim-hdevtools'
+Bundle 'dag/vim2hs'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'gibiansky/vim-latex-objects'
 
 source $HOME/.vim/unite-ctrlp.vim
 

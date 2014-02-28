@@ -66,7 +66,7 @@ nnoremap M K
 " Better regexes?
 nnoremap / /\v
 vnoremap / /\v
-inoremap jk <esc>:w<CR>
+inoremap jk <esc>
 "inoremap jj <esc>:w<CR>
 inoremap jf <esc>:w<CR>
 " these might be confusing mappings to a new USER just change lastname
