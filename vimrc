@@ -55,7 +55,7 @@ endif
 if (stridx($HOME, "/Users/") == 0)
     nnoremap <c-c> :!pbcopy <cr>
     " i'm proud of this
-    vnoremap <c-c> :!tee >(pbcopy) <cr>
+    vnoremap <c-c> "+y
 else
     nnoremap <c-c> :echo 'How do you copy and paste?'<CR>
 endif
