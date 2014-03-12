@@ -162,6 +162,7 @@ Bundle 'eagletmt/ghcmod-vim'
 Bundle 'eagletmt/neco-ghc'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'gibiansky/vim-latex-objects'
+Bundle 'wting/rust.vim'
 
 source $HOME/.vim/unite-ctrlp.vim
 
