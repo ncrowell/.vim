@@ -1,17 +1,29 @@
+" Nicolas Crowell
+" 
+" Last modified: 3/18/2014
+"
+" get this file at tiny.cc/ncrowellvimrc
+
 set nocompatible
 set backupdir=~/tmp/vim,.
 set directory=~/tmp/vim,.
-set verbosefile=$HOME/.vim/messages
+
+" setup logging
+let message_log     = $HOME . "/.vim/messages"
+let message_log_esc = shellescape(message_log)
+let mesglog_dir     = shellescape(fnamemodify(message_log, ":p:h"))
+let _               = system("mkdir " . mesglog_dir)
+let _               = system("touch " . message_log_esc)
+let &verbosefile    = message_log
 
 " TODO make up your mind...
 let &directory = join(["./.backup", &directory], ",")
 
-if has("gui_macvim")
-    set fullscreen
+let $MYVIMPLUGINS = $HOME . "/.vim/bundle_specific.vimrc"
+if filereadable($MYVIMPLUGINS)
+    source $MYVIMPLUGINS
 endif
-
-source $HOME/.vim/bundle_specific.vimrc
-
+filetype plugin indent on
 
 let mapleader = ','
 set confirm
@@ -106,8 +118,8 @@ nnoremap . mm.`m
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>tv :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>eb :tabedit $HOME/.vim/bundle_specific.vimrc<cr>
-nnoremap <leader>sb :source $HOME/.vim/bundle_specific.vimrc<cr>
+nnoremap <leader>eb :tabedit $MYVIMPLUGINS<cr>
+nnoremap <leader>sb :source $MYVIMPLUGINS<cr>
 
 " lchdir to containing folder of this buffer
 noremap <leader>ts :lcd %:p:h<esc>

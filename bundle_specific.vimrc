@@ -166,5 +166,4 @@ Bundle 'wting/rust.vim'
 
 source $HOME/.vim/unite-ctrlp.vim
 
-" Vundle wants this
 filetype plugin indent on
