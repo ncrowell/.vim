@@ -1,4 +1,8 @@
+if exists("did_load_filetypes")
+    finish
+endif
 augroup filetypedetect
-    autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setf tmux
-    autocmd BufNewFile,BufReadPost *.coffee set ft=coffee
+    autocmd!
+    autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
+    autocmd BufNewFile,BufReadPost *.coffee setfiletype coffee
 augroup END
