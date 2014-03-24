@@ -1,2 +1,2 @@
 " add line ending
-noremap <buffer> ,a mmA;<esc>`mw<cr>
+nnoremap <buffer> ,a mmA;<esc>`mw<cr>

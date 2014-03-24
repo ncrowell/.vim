@@ -1,9 +1,13 @@
+let g:tex_flavor='latex'
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+let g:tex_flavor='latex'
+
 " append period to EOL
 noremap <buffer> ,a mmA.<esc>`m:w<cr>
 
 " recommended by latex-suite documentation
-set shiftwidth=2
-set iskeyword+=:
+setlocal shiftwidth=2
+setlocal iskeyword+=:
 
 " this might be obsolete with formatoptions+= a
 nnoremap gqj gq}
