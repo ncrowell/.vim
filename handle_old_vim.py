@@ -1,4 +1,4 @@
-from subprocess import call, check_output, CalledProcessError
+from subprocess import call, check_output
 from re import findall
 
 def main():
