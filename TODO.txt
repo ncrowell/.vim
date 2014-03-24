@@ -1,3 +1,0 @@
-Add Makefile instead of the readme directions. Maybe update submodules
-based on the date of bundle_specific.vimrc? There's probably a better
-way. Should probably have a log of when Make-initiated updates happen.
