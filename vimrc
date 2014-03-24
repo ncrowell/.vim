@@ -14,7 +14,7 @@ let message_log_esc = shellescape(message_log)
 let mesglog_dir     = shellescape(fnamemodify(message_log, ":p:h"))
 let _               = system("mkdir " . mesglog_dir)
 let _               = system("touch " . message_log_esc)
-let &verbosefile    = message_log
+"let &verbosefile    = message_log
 
 " TODO make up your mind...
 let &directory = join(["./.backup", &directory], ",")
