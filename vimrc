@@ -19,7 +19,8 @@ let &verbosefile    = message_log
 " TODO make up your mind...
 let &directory = join(["./.backup", &directory], ",")
 
-let $MYVIMPLUGINS = $HOME . "/.vim/bundle_specific.vimrc"
+let $MYVIMDIR     = $HOME . "/.vim"
+let $MYVIMPLUGINS = $MYVIMDIR . "/bundle_specific.vimrc"
 if filereadable($MYVIMPLUGINS)
     source $MYVIMPLUGINS
 endif
@@ -96,10 +97,6 @@ endif
 noremap H g^
 noremap L g_
 noremap Y y$
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
 " windows
 nnoremap <silent> <c-j> :wincmd j<cr>
 nnoremap <silent> <c-k> :wincmd k<cr>
@@ -176,3 +173,12 @@ if  exists("+colorcolumn")
     augroup END
 endif
 
+function! FormatProfile()
+    " Open profile.log file in vim first
+    let timings=[]
+    g/^FUNCTION/call add(timings, [getline('.')[len('FUNCTION  '):], matchstr(getline(line('.')+1), '^Sourced \zs\d\+')]+map(getline(line('.')+2, line('.')+3), 'matchstr(v:val, ''\d\+\.\d\+$'')'))
+    enew
+    call setline('.', ['count total (s)   self (s)  function'] + map(copy(timings), 'printf("%5u %9s   %8s  %s", v:val[1], v:val[2], v:val[3], v:val[0])'))
+endfunction
+
+nnoremap <F8> :call FormatProfile()<CR>
