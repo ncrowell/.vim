@@ -182,3 +182,5 @@ function! FormatProfile()
 endfunction
 
 nnoremap <F8> :call FormatProfile()<CR>
+
+colorscheme monokai
