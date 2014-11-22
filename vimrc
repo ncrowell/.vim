@@ -21,9 +21,12 @@ let &directory = join(["./.backup", &directory], ",")
 
 let $MYVIMDIR     = $HOME . "/.vim"
 let $MYVIMPLUGINS = $MYVIMDIR . "/bundle_specific.vimrc"
+let $LOCALVIMRC   = $MYVIMDIR . "/vimrc.local"
+
 if filereadable($MYVIMPLUGINS)
     source $MYVIMPLUGINS
 endif
+
 filetype plugin indent on
 
 let mapleader = ','
@@ -93,6 +96,14 @@ if ( stridx(tolower($USER), lastname) != -1 )
     inoremap ;w <esc>:w
 endif
 
+"this allows you to use %% in a path and it means "directory of this buffer"
+"so similar to :A you can do stuff like
+":e %%/OtherFile.cc
+"or
+":e %%
+"and just look at the pwd and then select a file
+:cabbr %% <C-R>=expand('%:p:h')<CR>
+
 " movement
 noremap H g^
 noremap L g_
@@ -119,7 +130,7 @@ nnoremap <leader>eb :tabedit $MYVIMPLUGINS<cr>
 nnoremap <leader>sb :source $MYVIMPLUGINS<cr>
 
 " lchdir to containing folder of this buffer
-noremap <leader>ts :lcd %:p:h<esc>
+noremap <leader>ts :lchdir %:p:h<esc>
 " stay in visual after inserting new line
 vnoremap o <esc>o<esc>v
 vnoremap O <esc>O<esc>v
@@ -169,7 +180,7 @@ if  exists("+colorcolumn")
     " I don't this autocommand works the way I think it should ...
     augroup column_setting_color
         autocmd!
-        autocmd BufNewFile,BufReadPost,Syntax let &colorcolumn = &textwidth 
+        autocmd BufNewFile,BufReadPost,Syntax let &colorcolumn = &textwidth
     augroup END
 endif
 
@@ -180,5 +191,12 @@ function! FormatProfile()
     enew
     call setline('.', ['count total (s)   self (s)  function'] + map(copy(timings), 'printf("%5u %9s   %8s  %s", v:val[1], v:val[2], v:val[3], v:val[0])'))
 endfunction
+"nnoremap <F8> :call FormatProfile()<CR>
 
-nnoremap <F8> :call FormatProfile()<CR>
+"colorscheme monokai
+colorscheme solarized
+set background=dark
+
+if filereadable($LOCALVIMRC)
+    source $LOCALVIMRC
+endif
