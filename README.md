@@ -1,13 +1,8 @@
 Grab:
 
-    git clone git@github.com:ncrowell/.vim.git
+    git clone git@github.com:ncrowell/.vim.git ~/.vim
 
-Symlinks:
-
-    ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
-
-Submodules:
+Update plugin submodules:
 
     cd ~/.vim
     git submodule update --init
