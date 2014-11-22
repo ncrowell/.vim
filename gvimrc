@@ -10,4 +10,9 @@ set guicursor+=a:blinkon0
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
 
-colorscheme zenburn
+colorscheme solarized
+
+let $LOCALGVIMRC   = $MYVIMDIR . "/gvimrc.local"
+if filereadable($LOCALGVIMRC)
+    source $LOCALGVIMRC
+endif
