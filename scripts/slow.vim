@@ -2,7 +2,7 @@ let g:syntastic_c_compiler_options = ' -ansi -Wall'
 "let g:syntastic_python_checker_args = "--ignore=E111"
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['java','cpp','python', 'tex'] }
+                           \ 'passive_filetypes': ['tex', 'java'] } "['java','cpp','python', 'tex'] }
 Bundle 'scrooloose/syntastic'
 
 "Languages
@@ -42,7 +42,7 @@ augroup Rainbow_On
     autocmd VimEnter * RainbowParenthesesLoadBraces
     autocmd VimEnter * RainbowParenthesesLoadRound
     autocmd VimEnter * RainbowParenthesesLoadSquare
-    autocmd VimEnter * RainbowParenthesesLoadChevrons
+    "autocmd VimEnter * RainbowParenthesesLoadChevrons
 augroup END
 
 "set laststatus=2
@@ -103,9 +103,9 @@ endif
 "unicode symbols
 let g:airline_symbols.paste = 'ρ'
 
-let g:airline_left_sep = '⮀'
-let g:airline_right_sep = '⮂'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
+"let g:airline_left_sep = '⮀'
+"let g:airline_right_sep = '⮂'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.readonly = '⭤'
 
 

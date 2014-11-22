@@ -19,4 +19,4 @@ Bundle 'wting/rust.vim'
 Bundle 'gibiansky/vim-latex-objects'
 Bundle 'vim-scripts/tex_autoclose.vim'
 
-source $HOME/.vim/scripts/unite-ctrlp.vim
+"source $HOME/.vim/scripts/unite-ctrlp.vim
