@@ -3,6 +3,7 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
     autocmd!
-    autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
-    autocmd BufNewFile,BufReadPost *.coffee setfiletype coffee
+    autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setfiletype tmux
+    autocmd BufNewFile,BufRead *.coffee setfiletype coffee
+    autocmd BUfNewFile,BufRead *.rs setfiletype rust
 augroup END
