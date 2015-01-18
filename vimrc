@@ -183,4 +183,6 @@ endfunction
 
 nnoremap <F8> :call FormatProfile()<CR>
 
-colorscheme monokai
+set background=dark
+"colorscheme monokai
+
