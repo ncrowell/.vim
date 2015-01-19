@@ -3,32 +3,32 @@ let g:syntastic_c_compiler_options = ' -ansi -Wall'
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['java','cpp','python', 'tex'] }
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 "Languages
-Bundle 'Markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'guns/vim-clojure-static'
+Plugin 'Markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'guns/vim-clojure-static'
 
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'jnwhiteh/vim-golang'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'ctags.vim'
-Bundle 'surround.vim'
-Bundle 'a.vim'
-Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
-Bundle 'Align.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctags.vim'
+Plugin 'surround.vim'
+Plugin 'a.vim'
+Plugin 'The-NERD-tree'
+Plugin 'The-NERD-Commenter'
+Plugin 'Align.git'
 
 let g:indent_guides_auto_colors = 0
 
-Bundle 'ack.vim'
+Plugin 'ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NOTE This feature requires that 'backspace' is either set to 2 or
 " has "eol" and "start" as part of its value.
 "let delimitMate_expand_cr = 1
-Bundle "Raimondi/delimitMate"
+Plugin "Raimondi/delimitMate"
 let g:delimitMate_expand_cr = 1
 
 "let g:ctrlp_max_files = 300
@@ -36,7 +36,7 @@ let g:delimitMate_expand_cr = 1
 "let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 "Bundle 'kien/ctrlp.vim'
 
-Bundle 'kien/rainbow_parentheses.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 augroup Rainbow_On
     autocmd!
     autocmd VimEnter * RainbowParenthesesLoadBraces
@@ -47,9 +47,9 @@ augroup END
 
 "set laststatus=2
 
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 
-Bundle 'Glench/Vim-Jinja2-Syntax'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 """"""""" COLOR """""""""""""""""
 "colorscheme zenburn
 
@@ -62,25 +62,25 @@ set t_Co=16 | colorscheme solarized
 set background=dark
 "set background=light
 
-Bundle 'dhruvasagar/vim-markify'
-Bundle 'majutsushi/tagbar'
-Bundle 'mips.vim'
+Plugin 'dhruvasagar/vim-markify'
+Plugin 'majutsushi/tagbar'
+Plugin 'mips.vim'
 
 let g:startify_files_number = 20
-Bundle 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
 
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'noahfrederick/Hemisu'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
+Plugin "MarcWeber/vim-addon-mw-utils"
+Plugin "tomtom/tlib_vim"
+Plugin 'garbas/vim-snipmate'
 
 "set statusline=%F\ %M%R%Y\ %l:%c\ of\ %L.\ %P%#Identifier#
 set laststatus=2
 "highlight StatusLine  ctermfg=0 ctermbg=3
 "highlight link StatusLine StatusLineNC
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
