@@ -28,7 +28,9 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " NOTE This feature requires that 'backspace' is either set to 2 or
 " has "eol" and "start" as part of its value.
 "let delimitMate_expand_cr = 1
-Plugin "Raimondi/delimitMate"
+
+Plugin 'Raimondi/delimitMate'
+
 let g:delimitMate_expand_cr = 1
 
 "let g:ctrlp_max_files = 300
@@ -69,10 +71,8 @@ Plugin 'mips.vim'
 let g:startify_files_number = 20
 Plugin 'mhinz/vim-startify'
 
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'noahfrederick/Hemisu'
-Plugin "MarcWeber/vim-addon-mw-utils"
-Plugin "tomtom/tlib_vim"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 "set statusline=%F\ %M%R%Y\ %l:%c\ of\ %L.\ %P%#Identifier#
