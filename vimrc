@@ -200,3 +200,6 @@ set background=dark
 if filereadable($LOCALVIMRC)
     source $LOCALVIMRC
 endif
+set background=dark
+colorscheme monokai
+
