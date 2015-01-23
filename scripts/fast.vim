@@ -7,7 +7,7 @@ Plugin 'tfnico/vim-gradle'
 
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 "let g:neocomplete#enable_at_startup = 1
 Plugin 'Shougo/unite-outline'
 Plugin 'tpope/vim-dispatch.git'

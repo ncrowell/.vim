@@ -5,8 +5,8 @@
 " get this file at tiny.cc/ncrowellvimrc
 
 set nocompatible
-set backupdir=~/tmp/vim,.
-set directory=~/tmp/vim,.
+"set backupdir=~/tmp/vim/backup,./.backup
+"set directory=~/tmp/vim/swap,./swap
 
 " setup logging
 let message_log     = $HOME . "/.vim/messages"
@@ -57,12 +57,7 @@ if has("persistent_undo") || exists("+undofile")
     set undodir=~/tmp
     set undofile
 endif
-if exists("+relativenumber")
-    "set relativenumber
-    set number
-else
-    set number
-endif
+set number
 
 " hack: are we on a mac?
 if (stridx($HOME, "/Users/") == 0)
@@ -156,7 +151,7 @@ augroup AUTOCOMMANDS
     autocmd!
     " Save folds across file open/close
     autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent loadview
+    autocmd BufWinEnter *.* silent! loadview
 
     " Save when losing focus
     autocmd FocusLost * :silent! wall

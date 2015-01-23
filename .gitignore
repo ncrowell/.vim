@@ -1,2 +1,6 @@
 view
 addmodules.sh
+.DS_STORE
+messages
+.check_vim_version
+bundle/*vim*
