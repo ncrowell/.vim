@@ -18,7 +18,6 @@ Plugin 'surround.vim'
 Plugin 'a.vim'
 Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
-Plugin 'Align.git'
 
 let g:indent_guides_auto_colors = 0
 

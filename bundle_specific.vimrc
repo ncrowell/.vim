@@ -16,6 +16,8 @@ source $MYVIMDIR/scripts/color.vim
 source $MYVIMDIR/scripts/slow.vim
 source $MYVIMDIR/scripts/fast.vim
 
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'terryma/vim-expand-region'
 "vnoremap v <Plug>(expand_region_expand)
