@@ -2,7 +2,7 @@
 " 
 " Last modified: 3/18/2014
 "
-" get this file at tiny.cc/ncrowellvimrc
+" get this file at
 
 set nocompatible
 "set backupdir=~/tmp/vim/backup,./.backup
