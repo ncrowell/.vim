@@ -66,10 +66,15 @@ set background=dark
 
 Plugin 'dhruvasagar/vim-markify'
 Plugin 'majutsushi/tagbar'
-Plugin 'mips.vim'
+augroup tagbaropen
+    autocmd!
+    " Breaks vimdiff, and I can't figure out how to fix it.
+    "autocmd BufReadPost * if !&diff | :TagbarOpen | endif
+augroup END
 
-let g:startify_files_number = 20
-Plugin 'mhinz/vim-startify'
+Plugin 'mips.vim'
+"let g:startify_files_number = 20
+"Plugin 'mhinz/vim-startify'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -91,7 +96,7 @@ let g:airline_section_z=''
 "profile func *
 
 "Bundle 'bling/vim-airline'
-let g:airline_enable_syntastic=1
+let g:airline#extensions#syntastic#enabled = 1
 "let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0

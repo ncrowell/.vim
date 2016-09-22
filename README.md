@@ -1,3 +1,9 @@
+## Maintaining
+
+TODO: How do I update packages these days? I don't really remember. - 2016-09-21
+
+## Installing
+
 Grab:
 
     git clone git@github.com:ncrowell/.vim.git ~/.vim

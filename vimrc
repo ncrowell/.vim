@@ -32,7 +32,7 @@ filetype plugin indent on
 let mapleader = ','
 set confirm
 set mouse=i
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=10
 " crontab -e
 set backupcopy=yes
 set pastetoggle=<F6>
@@ -62,14 +62,34 @@ if has("persistent_undo") || exists("+undofile")
 endif
 set number
 
+function IsMac()
+    if has("unix")
+        let s:uname = system("uname -s")
+        if s:uname == "Darwin"
+            return 1
+        endif
+    endif
+    return 0
+endfunction
+
+function IsLinux()
+    if has("unix")
+        let s:uname = system("echo -n \"$(uname)\"")
+        if !v:shell_error && s:uname == "Linux"
+            return 1
+        endif
+    endif
+    return 0
+endfunction
+
 " hack: are we on a mac?
-if (stridx($HOME, "/Users/") == 0)
+if IsMac()
     nnoremap <c-c> :!pbcopy <cr>
-    " i'm proud of this
-    vnoremap <c-c> "+y
 else
     nnoremap <c-c> :echo 'How do you copy and paste?'<CR>
 endif
+
+vnoremap <c-c> "+y
 
 nnoremap K :q<cr>
 nnoremap M K
@@ -134,6 +154,8 @@ nnoremap p mm]p==`m
 nnoremap P mm[P==`m
 " vimtips: highlight something in visual, hit c-x, highlight something
 " else, hit c-x, text swapped.
+" note: this is so complicated that I never remember how to use it. but maybe
+" it will be useful if i have to do it some time.
 vnoremap <C-X> <Esc>`.``gvP``P
 " Replace the default <c-l> mapping (to redraw the screen)
 " and add the removal of search highlighting
@@ -160,9 +182,10 @@ nnoremap <F7> :echo GetCurrentSyntaxGroup()<CR>
 
 augroup AUTOCOMMANDS
     autocmd!
-    " Save folds across file open/close
-    autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent! loadview
+    " Save folds across file open/close.
+    " This sometimes crash, even with silent, which I find to be annoying.
+    "autocmd BufWinLeave *.* mkview
+    "autocmd BufWinEnter *.* silent! loadview
 
     " Save when losing focus
     autocmd FocusLost * :silent! wall
@@ -170,9 +193,9 @@ augroup AUTOCOMMANDS
     autocmd VimResized * :wincmd =
 augroup END
 
-if  exists("+colorcolumn")
+if exists("+colorcolumn") && &colorcolumn == 0
     let &colorcolumn = &textwidth
-    " I don't this autocommand works the way I think it should ...
+    " I don't this autocommand works the way I would like it to work.
     augroup column_setting_color
         autocmd!
         autocmd BufNewFile,BufReadPost,Syntax let &colorcolumn = &textwidth
@@ -189,12 +212,11 @@ endfunction
 "nnoremap <F8> :call FormatProfile()<CR>
 
 "colorscheme monokai
-colorscheme solarized
-set background=dark
+"colorscheme solarized
+"set background=dark
 
+colorscheme monokai
 if filereadable($LOCALVIMRC)
     source $LOCALVIMRC
 endif
-set background=dark
-colorscheme monokai
 

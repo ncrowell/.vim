@@ -21,4 +21,15 @@ Plugin 'terryma/vim-expand-region'
 "vnoremap v <Plug>(expand_region_expand)
 "vnoremap <C-v> <Plug>(expand_region_shrink)
 
+Plugin 'kien/ctrlp.vim'
+" Look at the most-recently-used files by default.
+let g:ctrlp_cmd = 'CtrlPMRU'
+
+" Faster ctrlp match
+
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'tpope/vim-abolish'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'benekastah/neomake'
+
 filetype plugin indent on
