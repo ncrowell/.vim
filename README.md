@@ -1,15 +1,19 @@
-## Maintaining
+# Installing. (just run `bash README.md` to run all the commands.
 
-TODO: How do I update packages these days? I don't really remember. - 2016-09-21
+## Grab this repo with: git clone --depth=1 https://github.com/ncrowell/.vim.git ~/.vim
 
-## Installing
-
-Grab:
-
-    git clone git@github.com:ncrowell/.vim.git ~/.vim
-
-Update plugin submodules, and install plugins:
+## Checkout vundle package manager, and install plugins (takes a few minutes of downloading):
 
     cd ~/.vim
-    git submodule update --init
-    vim +PluginInstall +qall
+    git submodule update --init bundle/vundle
+    vim +PluginInstall
+
+## Make nvim work
+
+    mkdir -p ~/.config
+    ln -s ~/.vim ~/.config/nvim
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+## Updating plugins
+
+    vim +PluginUpdate
