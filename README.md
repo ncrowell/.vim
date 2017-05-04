@@ -1,19 +1,15 @@
-# Installing
+# vim configuration
 
-### 1. `git clone --depth=1 https://github.com/ncrowell/.vim.git ~/.vim`
+Works for vim and [neovim](neovim.io)
 
-### 2. `bash ~/.vim/README.md` will run all the commands as they are listed below.
+    $ git clone --depth=1 https://github.com/ncrowell/.vim.git ~/.vim
+    $ cd ~/.vim
+    $ git submodule update --init bundle/vundle
+    $ vim +PluginInstall
 
-### Checkout vundle package manager, and install plugins (takes a few minutes of downloading):
+    # Make nvim work.
+    $ mkdir -p ~/.config
+    $ ln -s ~/.vim ~/.config/nvim
+    $ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-    cd ~/.vim
-    git submodule update --init bundle/vundle
-    vim +PluginInstall
-
-### Make nvim work.
-
-    mkdir -p ~/.config
-    ln -s ~/.vim ~/.config/nvim
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
-
-### Updating plugins is just `vim +PluginUpdate`
+Updating plugin versions is `vim +PluginUpdate`.
