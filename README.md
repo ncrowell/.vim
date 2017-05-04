@@ -1,6 +1,6 @@
 # vim configuration
 
-Works for vim and [neovim](neovim.io)
+Works for vim and [neovim](neovim.io). Here's how to get it working (just needs a few minutes of downloading for the plugins):
 
     $ git clone --depth=1 https://github.com/ncrowell/.vim.git ~/.vim
     $ cd ~/.vim
